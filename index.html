@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.7" />
+    <title>FlyEagle Control Center</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    
+    <div class="header">
+      <h1>FlyEagle Eye</h1>
+      <h3 id="ws_status" style="background-color: orange; margin-left: 20px;">Connecting</h3>
+    </div>
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" id="settingsModal">
+        <h2>Setting</h2>
+        <div>Racecar websocket IP: </div>
+        <input type="text" placeholder="Tailscale IP of racecar" id="serverIp">
+        <div>
+          <button class="save-btn" onclick="saveSettings()">Save</button>
+          <button class="close-btn" onclick="hideSetting()">Exit</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-overlay" id="modalOverlay_About">
+      <div class="modal" id="settingsModal">
+        <h2>About</h2>
+        <h4>Coded by BobH</h4>
+        <h4>Version: 29.03.2024 </h4>
+        <div>
+          <button class="close-btn" onclick="hideAbout()">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="language-switcher">
+        <!-- <button style="margin-right: 10px;" onclick="switchLanguage('en')">English</button>
+        <button style="margin-right: 10px;" onclick="switchLanguage('zh')">中文</button> -->
+        <button style="margin-right: 10px;" onclick="showAbout()">About</button>
+        <button onclick="showSetting()">Setting</button>
+    </div>
+    <div class="tabs" style="z-index: 99;">
+      <button id="controller_tab_link" class="tab-link" onclick="openTab(event, 'ControlMonitor')">
+        Controller
+      </button>
+      <button class="tab-link" onclick="openTab(event, 'Engine')">
+        Engine
+      </button>
+      <button id="actuator_tab_link" class="tab-link" onclick="openTab(event, 'Actuator')">
+        Actuator
+      </button>
+      <button id="global_map_link" class="tab-link" onclick="openTab(event, 'Map')">
+        GlobalMap
+      </button>
+      
+    </div>
+
+    <div id="Map" class="tab-content control-monitoring">
+    </div>
+
+    <div id="ControlMonitor" class="tab-content" style="display: none">
+      <div class="card-container">
+        <div class="card">
+          <div id="leteral_eror_card_content" style="width: 200px;height: 200px;"></div>
+        </div>
+        <div class="card">
+          <div id="yaw_eror_card_content" style="width: 200px;height: 200px;"></div>
+        </div>
+        <div class="card">
+          <div id="speed_eror_card_content" style="width: 200px;height: 200px;"></div>
+        </div>
+        <div class="card">
+          <div id="vel_card_content" style="width: 200px;height: 200px;"></div>
+        </div>
+        <div class="card">
+          <div id="acc_card_content" style="width: 200px;height: 200px;"></div>
+        </div>
+        <div class="card">
+          <div id="ang_rate_card_content" style="width: 200px;height: 200px;"></div>
+        </div>
+        <div class="card">
+          <h2>vehicle_position:</h2>
+          <h3 id="veh_pos_X" class="vector-show">X: 0.000</h3>
+          <h3 id="veh_pos_Y" class="vector-show">Y: 0.000</h3>
+          <h3 id="veh_pos_Z" class="vector-show">Z: 0.000</h3>
+        </div>
+        <div class="card">
+          <h2>orientation_ypr:</h2>
+          <h3 id="orientation_X" class="vector-show">X: 0.000</h3>
+          <h3 id="orientation_Y" class="vector-show">Y: 0.000</h3>
+          <h3 id="orientation_Z" class="vector-show">Z: 0.000</h3>
+        </div>
+        <div class="card" style="opacity: 0;"></div>
+        <div class="card" style="opacity: 0;"></div>
+      </div>
+    </div>
+
+    <div id="Actuator" class="tab-content" style="display: none">
+      <div class="container" style="height: 100%">
+        <img src="./img/car.png" alt="车辆顶视图">
+        <div class="wheel-info front-left">
+          <p class="wheel-name">front_left:</p>
+          <!-- <p id="fl_target_pressure">target_pressure: 40%</p> -->
+          <div id="fl_target_pressure" class="wheel-info-figure" style="width: 100px; height: 100px"></div>
+          <p id="fl_speed_rad">speed_rad: 0.5 rad/s</p>
+          <p id="fl_speed_m">speed_m: 1 m/s</p>
+          <p id="fl_slip_ratio">slip_ratio: 0 %</p>
+        </div>
+        <div class="wheel-info front-right">
+          <p class="wheel-name">front_right:</p>
+          <!-- <p id="fr_target_pressure">target_pressure: 40%</p> -->
+          <div id="fr_target_pressure" class="wheel-info-figure" style="width: 100px; height: 100px"></div>
+          <p id="fr_speed_rad">speed_rad: 0.5 rad/s</p>
+          <p id="fr_speed_m">speed_m: 1 m/s</p>
+          <p id="fr_slip_ratio">slip_ratio: 0 %</p>
+        </div>
+        <div class="wheel-info back-left">
+          <p class="wheel-name">rear_left:</p>
+          <!-- <p id="rl_target_pressure">target_pressure: 40%</p> -->
+          <div id="rl_target_pressure" class="wheel-info-figure" style="width: 100px; height: 100px"></div>
+          <p id="rl_speed_rad">speed_rad: 0.5 rad/s</p>
+          <p id="rl_speed_m">speed_m: 1 m/s</p>
+          <p id="rl_slip_ratio">slip_ratio: 0 %</p>
+        </div>
+          
+        <div class="wheel-info back-right">
+          <p class="wheel-name">rear_right:</p>
+          <!-- <p id="rr_target_pressure">target_pressure: 40%</p> -->
+          <div id="rr_target_pressure" class="wheel-info-figure" style="width: 100px; height: 100px"></div>
+          <p id="rr_speed_rad">speed_rad: 0.5 rad/s</p>
+          <p id="rr_speed_m">speed_m: 1 m/s</p>
+          <p id="rr_slip_ratio">slip_ratio: 0 %</p>
+        </div>
+
+
+        <div class="wheel-info steer-throttle">
+          <p class="wheel-name" style="color: rgb(245, 255, 52)">target:</p>
+          <p id="target_throttle">target_throttle: 19%</p>
+          <p id="target_gear">target_gear: 1</p>
+          <p id="target_psa">target_psa: 46</p>
+           <!-- hl_target_psa_control -->
+        </div>
+        <div class="wheel-info actua-steer-throttle">
+          <p class="wheel-name"  style="color: rgb(255, 63, 249)">actual:</p>
+          <p id="actual_throttle">actual_throttle: 19%</p>
+          <p id="actual_gear">actual_gear: 1</p>
+          <p id="actual_psa">actual_psa: 46</p>
+           <!-- hl_target_psa_control -->
+        </div>
+      </div>
+    </div>
+
+    <div id="Engine" class="tab-content" style="display: none">
+      <div class="card-container">
+        <div class="card">
+          <div id="water_temp_content" style="width: 200px;height: 200px;"></div>
+        </div>
+        <div class="card">
+          <div id="oil_temp_content" style="width: 200px;height: 200px;"></div>
+        </div>
+        <div class="card">
+          <div id="engine_speed_content" style="width: 200px;height: 200px;"></div>
+        </div>
+        <div class="card" style="opacity: 0;"></div>
+        <div class="card" style="opacity: 0;"></div>
+      </div>
+    </div>
+    <script src="./justgage-1.2.2/raphael-2.1.4.min.js"></script>
+    <script src="./justgage-1.2.2/justgage.js"></script>
+    <script src="local_storage.js"></script>
+    <script src="monitor_item.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
