@@ -56,6 +56,11 @@
     </div>
 
     <div id="Map" class="tab-content control-monitoring">
+      <div class="card-container">
+        <div class="card">
+          <svg width="800" height="600" id="global_map_svg"></svg>
+        </div>
+      </div>
     </div>
 
     <div id="ControlMonitor" class="tab-content" style="display: none">
@@ -167,8 +172,10 @@
     </div>
     <script src="./justgage-1.2.2/raphael-2.1.4.min.js"></script>
     <script src="./justgage-1.2.2/justgage.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="local_storage.js"></script>
     <script src="monitor_item.js"></script>
     <script src="script.js"></script>
+    <script src="map_plot.js"></script>
   </body>
 </html>
