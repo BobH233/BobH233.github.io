@@ -40,6 +40,10 @@ function handleWSMessage(message_content) {
     document.getElementById("veh_pos_X").innerText = `X: ${jObj["ego_loc"]["position"]["x"].toFixed(3)}`;
     document.getElementById("veh_pos_Y").innerText = `Y: ${jObj["ego_loc"]["position"]["y"].toFixed(3)}`;
     document.getElementById("veh_pos_Z").innerText = `Z: ${jObj["ego_loc"]["position"]["z"].toFixed(3)}`;
+    updateCarPosition({
+      x: jObj["ego_loc"]["position"]["x"],
+      y: jObj["ego_loc"]["position"]["y"],
+    });
     document.getElementById("orientation_X").innerText = `X: ${jObj["ego_loc"]["orientation_ypr"]["x"].toFixed(3)}`;
     document.getElementById("orientation_Y").innerText = `Y: ${jObj["ego_loc"]["orientation_ypr"]["y"].toFixed(3)}`;
     document.getElementById("orientation_Z").innerText = `Z: ${jObj["ego_loc"]["orientation_ypr"]["z"].toFixed(3)}`;
@@ -336,7 +340,7 @@ window.onload = function(){
     titleMinFontSize: "10px",
     titlePosition: "below",
   });
-  document.getElementById("controller_tab_link").click();
+  document.getElementById("global_map_link").click();
 }
 
 function showSetting() {
