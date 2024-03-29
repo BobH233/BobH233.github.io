@@ -17,9 +17,16 @@ var lineGenerator = d3
 
 // 在SVG容器中绘制曲线
 var svg = d3.select("svg"),
-  margin = { top: 20, right: 20, bottom: 20, left: 20 },
+  margin = { top: 60, right: 60, bottom: 60, left: 60 },
   width = +svg.attr("width") - margin.left - margin.right,
   height = +svg.attr("height") - margin.top - margin.bottom;
+
+function updateSpeedTextPlot(speed, acce) {
+  svg.select("#speedText").text(`${speed.toFixed(2)} m/s`);
+  svg.select("#acceText").text(`${acce.toFixed(2)} m/s^2`);
+}
+
+var offsetX = 30, offsetY = 30;
 
 function updateCarPosition(newPosition) {
   // 计算新位置的x和y坐标
@@ -33,8 +40,27 @@ function updateCarPosition(newPosition) {
     // .duration(500) // 过渡时间为500毫秒
     .attr("cx", newX)
     .attr("cy", newY);
-}
 
+  svg
+    .select("#speedBackground")
+    // .transition() // 使用过渡效果平滑更新位置
+    // .duration(500) // 过渡时间为500毫秒
+    .attr("x", newX - 60 + offsetX)
+    .attr("y", newY - 35 + offsetY);
+
+  svg
+    .select("#speedText")
+    // .transition() // 使用过渡效果平滑更新位置
+    // .duration(500) // 过渡时间为500毫秒
+    .attr("x", newX + 10 + offsetX)
+    .attr("y", newY - 15 + offsetY);
+  svg
+    .select("#acceText")
+    // .transition() // 使用过渡效果平滑更新位置
+    // .duration(500) // 过渡时间为500毫秒
+    .attr("x", newX + 10 + offsetX)
+    .attr("y", newY + offsetY);
+}
 
 var trackPoints = [];
 
@@ -69,7 +95,7 @@ d3.json("./track_south.json")
         return yScale(d.y);
       });
     // .curve(d3.curveBasis);
-    console.log(trackPoints);
+    // console.log(trackPoints);
     svg
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -82,6 +108,39 @@ d3.json("./track_south.json")
 
     // 假设赛车当前位置在轨迹点数组的中间
     var carPosition = trackPoints[0];
+
+    svg
+      .append("rect")
+      .attr("id", "speedBackground")
+      .attr("x", xScale(carPosition.x) - 60 + offsetX) // 以车辆位置为基准进行偏移
+      .attr("y", yScale(carPosition.y) - 35 + offsetY)
+      .attr("width", 150) // 设定宽高
+      .attr("height", 45)
+      .attr("fill", "rgba(255,255,255,0.7)")
+      .attr("rx", 5) // x轴方向圆角半径
+      .attr("ry", 5); // y轴方向圆角半径
+
+    // 添加速度指示的文本
+    svg
+      .append("text")
+      .attr("id", "speedText")
+      .attr("x", xScale(carPosition.x) + 10 + offsetX) // 以车辆位置为基准
+      .attr("y", yScale(carPosition.y) - 15 + offsetY)
+      .attr("text-anchor", "middle") // 文本居中对齐
+      .attr("fill", "white") // 文本颜色
+      .style("font-weight", "bold")
+      .attr("filter", "url(#textShadow)")
+      .text("speed: 0m/s"); // 初始文本内容
+    svg
+      .append("text")
+      .attr("id", "acceText")
+      .attr("x", xScale(carPosition.x) + 10 + offsetX) // 以车辆位置为基准
+      .attr("y", yScale(carPosition.y) + offsetY)
+      .attr("text-anchor", "middle") // 文本居中对齐
+      .attr("fill", "white") // 文本颜色
+      .style("font-weight", "bold")
+      .attr("filter", "url(#textShadow)")
+      .text("acce: 0m/s^2"); // 初始文本内容
     svg
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -90,7 +149,8 @@ d3.json("./track_south.json")
       .attr("cx", xScale(carPosition.x))
       .attr("cy", yScale(carPosition.y))
       .attr("r", 7)
-      .attr("fill", "#0cff0c");
+      .attr("fill", "red")
+      .attr("filter", "url(#shadow)");
   })
   .catch(function (error) {
     console.log("Error loading the file: ", error);
