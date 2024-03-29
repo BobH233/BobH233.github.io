@@ -55,11 +55,13 @@ function handleWSMessage(message_content) {
   }
   if(jObj["ego_state"] != undefined) {
     globalChart.speed_chart.refresh(Math.abs(jObj["ego_state"]["velocity"]["x"]));
+    updateSpeedTextPlot(Math.abs(jObj["ego_state"]["velocity"]["x"]), Math.abs(jObj["ego_state"]["acceleration"]["x"]));
     globalChart.acc_chart.refresh(Math.abs(jObj["ego_state"]["acceleration"]["x"]));
     globalChart.ang_rate_chart.refresh(Math.abs(jObj["ego_state"]["angular_rate"]["z"]))
   }
   if(jObj["ice_status_01"] != undefined) {
     document.getElementById("actual_gear").innerText = `actual_gear: ${jObj["ice_status_01"]["ice_actual_gear"]}`;
+    document.getElementById("current_gear_show").innerText = `${jObj["ice_status_01"]["ice_actual_gear"]}`;
     document.getElementById("actual_throttle").innerText = `actual_throttle: ${jObj["ice_status_01"]["ice_actual_throttle"].toFixed(2)} %`;
   }
   if(jObj["ice_status_02"] != undefined) {
@@ -341,6 +343,7 @@ window.onload = function(){
     titlePosition: "below",
   });
   document.getElementById("global_map_link").click();
+  // document.getElementById("controller_tab_link").click();
 }
 
 function showSetting() {
