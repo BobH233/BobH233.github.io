@@ -169,3 +169,16 @@ function switchMiniMap() {
     document.getElementById("map_container_card").style.display = "";
   }
 }
+
+var logWindowEnable = true;
+function switchLog() {
+  if(logWindowEnable) {
+    logWindowEnable = false;
+    localStorage["logWindowEnable"] = 'false';
+    document.getElementById("floating_log_card").style.display = "none";
+  } else {
+    logWindowEnable = true;
+    localStorage["logWindowEnable"] = 'true';
+    document.getElementById("floating_log_card").style.display = "";
+  }
+}
