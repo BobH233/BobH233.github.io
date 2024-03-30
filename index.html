@@ -22,6 +22,11 @@
           placeholder="Tailscale IP of racecar"
           id="serverIp"
         />
+        <div id="default_ip">
+          <a href="#" ip="ws://127.0.0.1:9604" onclick="setIP(this);">Local IP</a> <br/>
+          <a href="#" ip="ws://47.91.115.171:9604"  onclick="setIP(this);">Racecar Public IP</a> <br/>
+          <a href="#" ip="ws://100.65.42.111:9604"  onclick="setIP(this);">Sim Local IP</a>
+        </div>
         <div>
           <button class="save-btn" onclick="saveSettings()">Save</button>
           <button class="close-btn" onclick="hideSetting()">Exit</button>
@@ -45,7 +50,7 @@
       <button style="margin-right: 10px" onclick="showAbout()">About</button>
       <button onclick="showSetting()">Setting</button>
     </div>
-    <div class="tabs" style="z-index: 99">
+    <div class="tabs" style="z-index: 25">
       <button
         id="controller_tab_link"
         class="tab-link"
@@ -253,6 +258,7 @@
     <script src="./justgage-1.2.2/justgage.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="local_storage.js"></script>
     <script src="monitor_item.js"></script>

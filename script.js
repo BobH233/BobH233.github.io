@@ -156,7 +156,11 @@ function setServerIP() {
 
 window.onload = function(){
   setCardClick();
-  setServerIP()
+  setServerIP();
+  if(localStorage["miniMapEnable"] == 'false') {
+    document.getElementById("map_container_card").style.display = "none";
+    miniMapEnable = false;
+  }
   const font_family = 'Courier New';
   globalChart.leteral_error_chart = new JustGage({
     id: "leteral_eror_card_content",
@@ -364,4 +368,8 @@ function hideAbout() {
 function saveSettings(){
   set_storage_server_ip(document.getElementById("serverIp").value);
   hideSetting();
+}
+
+function setIP(evt) {
+  document.getElementById("serverIp").value = evt.getAttribute("ip");
 }

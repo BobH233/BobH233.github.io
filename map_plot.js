@@ -161,9 +161,11 @@ var miniMapEnable = true;
 function switchMiniMap() {
   if(miniMapEnable) {
     miniMapEnable = false;
+    localStorage["miniMapEnable"] = 'false';
     document.getElementById("map_container_card").style.display = "none";
   } else {
     miniMapEnable = true;
+    localStorage["miniMapEnable"] = 'true';
     document.getElementById("map_container_card").style.display = "";
   }
 }
