@@ -26,7 +26,8 @@ function updateSpeedTextPlot(speed, acce) {
   svg.select("#acceText").text(`${acce.toFixed(2)} m/s^2`);
 }
 
-var offsetX = 30, offsetY = 30;
+var offsetX = 30,
+  offsetY = 30;
 
 function updateCarPosition(newPosition) {
   // 计算新位置的x和y坐标
@@ -66,7 +67,7 @@ var trackPoints = [];
 
 var xScale, yScale;
 
-d3.json("./track_south.json")
+d3.json("./track_full.json")
   .then(function (jsonResult) {
     for (let i = 0; i < jsonResult["ReferenceLine"].length; i++) {
       trackPoints.push({
@@ -103,7 +104,7 @@ d3.json("./track_south.json")
       .datum(trackPoints)
       .attr("fill", "none")
       .attr("stroke", "white")
-      .attr("stroke-width", 10)
+      .attr("stroke-width", 5)
       .attr("d", lineGenerator);
 
     // 假设赛车当前位置在轨迹点数组的中间
@@ -148,10 +149,21 @@ d3.json("./track_south.json")
       .attr("id", "carPosition")
       .attr("cx", xScale(carPosition.x))
       .attr("cy", yScale(carPosition.y))
-      .attr("r", 7)
+      .attr("r", 3)
       .attr("fill", "red")
       .attr("filter", "url(#shadow)");
   })
   .catch(function (error) {
     console.log("Error loading the file: ", error);
   });
+
+var miniMapEnable = true;
+function switchMiniMap() {
+  if(miniMapEnable) {
+    miniMapEnable = false;
+    document.getElementById("map_container_card").style.display = "none";
+  } else {
+    miniMapEnable = true;
+    document.getElementById("map_container_card").style.display = "";
+  }
+}

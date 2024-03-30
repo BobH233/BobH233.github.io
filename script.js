@@ -1,7 +1,4 @@
-// 页面加载完毕时自动激活第一个选项卡
-window.onload = function() {
-  document.getElementsByClassName('tab-link')[0].click();
-};
+
 
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
@@ -142,6 +139,7 @@ var globalChart = {};
 function setCardClick() {
   var cards = document.getElementsByClassName("card");
   for(let i=0;i<cards.length;i++) {
+    if(cards[i].getAttribute("note") == "no_strength") continue;
     cards[i].onclick = () => {
       if(cards[i].style.background == '') {
         cards[i].style.background = "#2d491e";
@@ -342,8 +340,9 @@ window.onload = function(){
     titleMinFontSize: "10px",
     titlePosition: "below",
   });
-  document.getElementById("global_map_link").click();
-  // document.getElementById("controller_tab_link").click();
+  // document.getElementById("global_map_link").click();
+  $( "#map_container_card" ).draggable();
+  document.getElementById("controller_tab_link").click();
 }
 
 function showSetting() {
