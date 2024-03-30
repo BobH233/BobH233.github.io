@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="header">
+    <div class="header" onclick="showAbout()">
       <h1>FlyEagle Eye</h1>
       <h3 id="ws_status" style="background-color: orange; margin-left: 20px">
         Connecting
@@ -23,9 +23,17 @@
           id="serverIp"
         />
         <div id="default_ip">
-          <a href="#" ip="ws://127.0.0.1:9604" onclick="setIP(this);">Local IP</a> <br/>
-          <a href="#" ip="ws://47.91.115.171:9604"  onclick="setIP(this);">Racecar Public IP</a> <br/>
-          <a href="#" ip="ws://100.65.42.111:9604"  onclick="setIP(this);">Sim Local IP</a>
+          <a href="#" ip="ws://127.0.0.1:9604" onclick="setIP(this);"
+            >Local IP</a
+          >
+          <br />
+          <a href="#" ip="ws://47.91.115.171:9604" onclick="setIP(this);"
+            >Racecar Public IP</a
+          >
+          <br />
+          <a href="#" ip="ws://100.65.42.111:9604" onclick="setIP(this);"
+            >Sim Local IP</a
+          >
         </div>
         <div>
           <button class="save-btn" onclick="saveSettings()">Save</button>
@@ -46,8 +54,10 @@
     <div class="language-switcher">
       <!-- <button style="margin-right: 10px;" onclick="switchLanguage('en')">English</button>
         <button style="margin-right: 10px;" onclick="switchLanguage('zh')">中文</button> -->
-      <button style="margin-right: 10px" onclick="switchMiniMap()">Mini Map</button>
-      <button style="margin-right: 10px" onclick="showAbout()">About</button>
+      <button style="margin-right: 10px" onclick="switchMiniMap()">
+        Mini Map
+      </button>
+      <button style="margin-right: 10px" onclick="switchLog()">Log</button>
       <button onclick="showSetting()">Setting</button>
     </div>
     <div class="tabs" style="z-index: 25">
@@ -68,6 +78,13 @@
       >
         Actuator
       </button>
+      <button
+        id="nodestatus_tab_link"
+        class="tab-link"
+        onclick="openTab(event, 'NodeStatus')"
+      >
+        Nodes
+      </button>
       <!-- <button
         id="global_map_link"
         class="tab-link"
@@ -76,40 +93,71 @@
         GlobalMap
       </button> -->
     </div>
-    <div class="card-container map_container_card" id="map_container_card">
-      <div class="card card_bordered" note="no_strength">
-        <svg width="250" height="400" id="global_map_svg">
-          <defs>
-            <filter id="shadow" height="130%">
-              <feDropShadow
-                dx="2"
-                dy="2"
-                stdDeviation="2"
-                flood-color="black"
-              />
-            </filter>
-            <filter
-              id="textShadow"
-              x="-20%"
-              y="-20%"
-              width="140%"
-              height="140%"
-            >
-              <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
-              <feOffset dx="2" dy="2" />
-              <feMerge>
-                <feMergeNode />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-        </svg>
-      </div>
-    </div>
-    <div id="Map" class="tab-content control-monitoring">
-      
+    <div
+      class="card card_bordered map_container_card"
+      id="map_container_card"
+      note="no_strength"
+    >
+      <svg width="250" height="400" id="global_map_svg">
+        <defs>
+          <filter id="shadow" height="130%">
+            <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="black" />
+          </filter>
+          <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+            <feOffset dx="2" dy="2" />
+            <feMerge>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+      </svg>
     </div>
 
+    <div class="floating-log-card" id="floating_log_card">
+      <h2>Log Messages</h2>
+      <ul id="logMessages">
+
+      </ul>
+    </div>
+    <div id="NodeStatus" class="tab-content control-monitoring">
+      <div class="status-card">
+        <h2>Planner Node</h2>
+        <ul>
+          <li>
+            <span class="status-dot" style="background-color: #ff7373"></span
+            >localization_received
+          </li>
+          <li>
+            <span class="status-dot" style="background-color: #76f976"></span
+            >race_control_report_received
+          </li>
+          <li>
+            <span class="status-dot" style="background-color: #ff7373"></span
+            >loc_status_received
+          </li>
+          <li>
+            <span class="status-dot" style="background-color: #ff7373"></span
+            >bsu_status_recived
+          </li>
+          <li>
+            <span class="status-dot" style="background-color: #ff7373"></span
+            >loc_timeout
+          </li>
+          <li>
+            <span class="status-dot" style="background-color: #ff7373"></span
+            >rc_timeout
+          </li>
+          <li>
+            <span class="status-dot" style="background-color: #ff7373"></span
+            >bsu_status_timeout
+          </li>
+          <!-- 更多状态 -->
+        </ul>
+      </div>
+    </div>
+    <div id="Map" class="tab-content control-monitoring"></div>
     <div id="ControlMonitor" class="tab-content" style="display: none">
       <div class="card-container">
         <div class="card">
@@ -170,8 +218,8 @@
             class="wheel-info-figure"
             style="width: 100px; height: 100px"
           ></div>
-          <p id="fl_speed_rad">speed_rad: 0.5 rad/s</p>
-          <p id="fl_speed_m">speed_m: 1 m/s</p>
+          <p id="fl_speed_rad">speed_rad: - rad/s</p>
+          <p id="fl_speed_m">speed_m: - m/s</p>
           <p id="fl_slip_ratio">slip_ratio: 0 %</p>
         </div>
         <div class="wheel-info front-right">
@@ -182,8 +230,8 @@
             class="wheel-info-figure"
             style="width: 100px; height: 100px"
           ></div>
-          <p id="fr_speed_rad">speed_rad: 0.5 rad/s</p>
-          <p id="fr_speed_m">speed_m: 1 m/s</p>
+          <p id="fr_speed_rad">speed_rad: - rad/s</p>
+          <p id="fr_speed_m">speed_m: - m/s</p>
           <p id="fr_slip_ratio">slip_ratio: 0 %</p>
         </div>
         <div class="wheel-info back-left">
@@ -194,8 +242,8 @@
             class="wheel-info-figure"
             style="width: 100px; height: 100px"
           ></div>
-          <p id="rl_speed_rad">speed_rad: 0.5 rad/s</p>
-          <p id="rl_speed_m">speed_m: 1 m/s</p>
+          <p id="rl_speed_rad">speed_rad: - rad/s</p>
+          <p id="rl_speed_m">speed_m: - m/s</p>
           <p id="rl_slip_ratio">slip_ratio: 0 %</p>
         </div>
 
@@ -207,23 +255,23 @@
             class="wheel-info-figure"
             style="width: 100px; height: 100px"
           ></div>
-          <p id="rr_speed_rad">speed_rad: 0.5 rad/s</p>
-          <p id="rr_speed_m">speed_m: 1 m/s</p>
+          <p id="rr_speed_rad">speed_rad: - rad/s</p>
+          <p id="rr_speed_m">speed_m: - m/s</p>
           <p id="rr_slip_ratio">slip_ratio: 0 %</p>
         </div>
 
         <div class="wheel-info steer-throttle">
           <p class="wheel-name" style="color: rgb(245, 255, 52)">target:</p>
-          <p id="target_throttle">target_throttle: 19%</p>
+          <p id="target_throttle">target_throttle: -%</p>
           <p id="target_gear">target_gear: 1</p>
-          <p id="target_psa">target_psa: 46</p>
+          <p id="target_psa">target_psa: -</p>
           <!-- hl_target_psa_control -->
         </div>
         <div class="wheel-info actua-steer-throttle">
           <p class="wheel-name" style="color: rgb(255, 63, 249)">actual:</p>
-          <p id="actual_throttle">actual_throttle: 19%</p>
+          <p id="actual_throttle">actual_throttle: -%</p>
           <p id="actual_gear">actual_gear: 1</p>
-          <p id="actual_psa">actual_psa: 46</p>
+          <p id="actual_psa">actual_psa: -</p>
           <!-- hl_target_psa_control -->
         </div>
       </div>

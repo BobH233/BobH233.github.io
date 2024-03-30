@@ -157,10 +157,18 @@ function setServerIP() {
 window.onload = function(){
   setCardClick();
   setServerIP();
+  $( "#map_container_card" ).draggable();
+  $( "#floating_log_card" ).draggable();
+
   if(localStorage["miniMapEnable"] == 'false') {
     document.getElementById("map_container_card").style.display = "none";
     miniMapEnable = false;
   }
+  if(localStorage["logWindowEnable"] == 'false') {
+    document.getElementById("floating_log_card").style.display = "none";
+    logWindowEnable = false;
+  }
+
   const font_family = 'Courier New';
   globalChart.leteral_error_chart = new JustGage({
     id: "leteral_eror_card_content",
@@ -344,9 +352,11 @@ window.onload = function(){
     titleMinFontSize: "10px",
     titlePosition: "below",
   });
+  document.getElementById("nodestatus_tab_link").click();
   // document.getElementById("global_map_link").click();
-  $( "#map_container_card" ).draggable();
-  document.getElementById("controller_tab_link").click();
+  
+  // document.getElementById("controller_tab_link").click();
+
 }
 
 function showSetting() {
@@ -373,3 +383,20 @@ function saveSettings(){
 function setIP(evt) {
   document.getElementById("serverIp").value = evt.getAttribute("ip");
 }
+
+function addLogMessage(title, message) {
+  const logList = document.getElementById('logMessages');
+  const newLogItem = document.createElement('li');
+  
+  // 获取当前时间并格式化
+  const now = new Date();
+  const timestamp = now.toLocaleTimeString(); // 格式化时间为本地时间字符串
+  
+  // 创建内容字符串，包括标题、消息和时间戳
+  newLogItem.innerHTML = `<strong>${title}</strong><br>${message}<br><small>${timestamp}</small>`;
+  
+  // 将新日志项插入到列表最前面
+  logList.insertBefore(newLogItem, logList.firstChild);
+}
+
+addLogMessage('Test Log', 'Hello world');
