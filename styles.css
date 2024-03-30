@@ -16,7 +16,7 @@ body, html {
   align-items: center; /* 子元素垂直居中 */
   position: fixed; /* 使 header 固定在顶部 */
   top: 0; /* 定位到页面顶部 */
-  z-index: 40; /* 确保 header 位于其他内容之上 */
+  z-index: 25; /* 确保 header 位于其他内容之上 */
 }
 
 .tabs {
@@ -69,7 +69,7 @@ body, html {
   display: flex;
   justify-content: center; /* 水平居中 */
   align-items: center; /* 垂直居中 */
-  z-index: 41;
+  z-index: 26;
 }
 
 .control_item {
@@ -266,7 +266,7 @@ body, html {
 }
 
 .map_container_card{
-  z-index: 99;
+  z-index: 30;
   position: fixed;
   top: 50px;
   left: 50px;
@@ -275,4 +275,13 @@ body, html {
 .card_bordered {
   border: 2px solid #000;
   border-color: #c7c7c7;
+}
+
+#default_ip {
+  line-height: 20px;
+}
+
+#default_ip a{
+  color: #8f8f8f;
+  margin-top: 10px;
 }
