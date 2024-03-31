@@ -41,7 +41,7 @@ function setStatusDotColor(objDict, greenValue, name) {
 }
 
 function setStatusDotYellow(name) {
-  console.log(`${name}dot`);
+  // console.log(`${name}dot`);
   if(document.getElementById(`${name}dot`) == null) return;
   document.getElementById(`${name}dot`).style.backgroundColor = "rgb(255 202 51)";
 }
