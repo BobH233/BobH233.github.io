@@ -40,8 +40,50 @@ function setStatusDotColor(objDict, greenValue, name) {
   }
 }
 
+function setStatusDotYellow(name) {
+  console.log(`${name}dot`);
+  if(document.getElementById(`${name}dot`) == null) return;
+  document.getElementById(`${name}dot`).style.backgroundColor = "rgb(255 202 51)";
+}
+
 var lastMessageTime = Date.now();
 
+var lastPlannerStateTime = Date.now();
+
+var planner_state_dict = [
+  {
+    name: "localization_received_",
+    greenValue: 1
+  },
+  {
+    name: "race_control_report_received_",
+    greenValue: 1
+  },
+  {
+    name: "loc_status_received_",
+    greenValue: 1
+  },
+  {
+    name: "bsu_status_recived_",
+    greenValue: 1
+  },
+  {
+    name: "loc_timeout",
+    greenValue: 0
+  },
+  {
+    name: "rc_timeout",
+    greenValue: 0
+  },
+  {
+    name: "bsu_status_timeout",
+    greenValue: 0
+  },
+  {
+    name: "controller_safe_stop",
+    greenValue: 0
+  },
+]
 
 function handleWSMessage(message_content) {
   let jObj = JSON.parse(message_content);
@@ -49,13 +91,10 @@ function handleWSMessage(message_content) {
     lastMessageTime = Date.now();
   }
   if(jObj["eye_planner_state"] != undefined) {
-    setStatusDotColor(jObj["eye_planner_state"], 1, "localization_received_");
-    setStatusDotColor(jObj["eye_planner_state"], 1, "race_control_report_received_");
-    setStatusDotColor(jObj["eye_planner_state"], 1, "loc_status_received_");
-    setStatusDotColor(jObj["eye_planner_state"], 1, "bsu_status_recived_");
-    setStatusDotColor(jObj["eye_planner_state"], 0, "loc_timeout");
-    setStatusDotColor(jObj["eye_planner_state"], 0, "rc_timeout");
-    setStatusDotColor(jObj["eye_planner_state"], 0, "bsu_status_timeout");
+    lastPlannerStateTime = Date.now();
+    planner_state_dict.forEach((item) => {
+      setStatusDotColor(jObj["eye_planner_state"], item["greenValue"], item["name"]);
+    });
   }
   if(jObj["ego_loc"] != undefined) {
     document.getElementById("veh_pos_X").innerText = `X: ${jObj["ego_loc"]["position"]["x"].toFixed(3)}`;
@@ -137,6 +176,13 @@ const decoder = new TextDecoder("utf-8");
 function checkWsStatus() {
   var nd = document.getElementById("ws_status");
   var now_ms = Date.now();
+
+  if(now_ms - lastPlannerStateTime > 1000) {
+    planner_state_dict.forEach((item) => {
+      setStatusDotYellow(item["name"]);
+    })
+  }
+
   if(ws_connected) {
     if(now_ms - lastMessageTime > 1000) {
       nd.innerHTML = "Timeout";
