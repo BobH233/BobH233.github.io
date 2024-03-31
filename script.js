@@ -31,8 +31,27 @@ function tyre_speed_rad_to_m(speed_rad) {
   return linear_speed;
 }
 
+function setStatusDotColor(objDict, greenValue, name) {
+  if(document.getElementById(`${name}dot`) == null) return;
+  if(objDict[name] == greenValue) {
+    document.getElementById(`${name}dot`).style.backgroundColor = "#76f976";
+  } else {
+    document.getElementById(`${name}dot`).style.backgroundColor = "#ff7373";
+  }
+}
+
 function handleWSMessage(message_content) {
+  
   let jObj = JSON.parse(message_content);
+  if(jObj["eye_planner_state"] != undefined) {
+    setStatusDotColor(jObj["eye_planner_state"], 1, "localization_received_");
+    setStatusDotColor(jObj["eye_planner_state"], 1, "race_control_report_received_");
+    setStatusDotColor(jObj["eye_planner_state"], 1, "loc_status_received_");
+    setStatusDotColor(jObj["eye_planner_state"], 1, "bsu_status_recived_");
+    setStatusDotColor(jObj["eye_planner_state"], 0, "loc_timeout");
+    setStatusDotColor(jObj["eye_planner_state"], 0, "rc_timeout");
+    setStatusDotColor(jObj["eye_planner_state"], 0, "bsu_status_timeout");
+  }
   if(jObj["ego_loc"] != undefined) {
     document.getElementById("veh_pos_X").innerText = `X: ${jObj["ego_loc"]["position"]["x"].toFixed(3)}`;
     document.getElementById("veh_pos_Y").innerText = `Y: ${jObj["ego_loc"]["position"]["y"].toFixed(3)}`;

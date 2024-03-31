@@ -358,6 +358,7 @@ body, html {
 .floating-log-card li {
   margin-bottom: 10px; /* 项目间距 */
   word-wrap: break-word; /* 长单词或URL换行 */
+  transition: background-color 0.3s;
 }
 
 .floating-log-card strong {
@@ -368,4 +369,8 @@ body, html {
   display: block; /* 让时间戳单独一行 */
   color: #7d7d7d; /* 时间戳颜色 */
   margin-top: 5px; /* 时间戳与消息内容间距 */
+}
+
+.floating-log-card li:hover {
+  background-color: rgba(158, 158, 158, 0.2);
 }
