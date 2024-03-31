@@ -40,9 +40,14 @@ function setStatusDotColor(objDict, greenValue, name) {
   }
 }
 
+var lastMessageTime = Date.now();
+
+
 function handleWSMessage(message_content) {
-  
   let jObj = JSON.parse(message_content);
+  if(jObj != {}) {
+    lastMessageTime = Date.now();
+  }
   if(jObj["eye_planner_state"] != undefined) {
     setStatusDotColor(jObj["eye_planner_state"], 1, "localization_received_");
     setStatusDotColor(jObj["eye_planner_state"], 1, "race_control_report_received_");
@@ -63,6 +68,7 @@ function handleWSMessage(message_content) {
     document.getElementById("orientation_X").innerText = `X: ${jObj["ego_loc"]["orientation_ypr"]["x"].toFixed(3)}`;
     document.getElementById("orientation_Y").innerText = `Y: ${jObj["ego_loc"]["orientation_ypr"]["y"].toFixed(3)}`;
     document.getElementById("orientation_Z").innerText = `Z: ${jObj["ego_loc"]["orientation_ypr"]["z"].toFixed(3)}`;
+    setCompassDirection(jObj["ego_loc"]["orientation_ypr"]["z"]);
   }
   if(jObj["controller_debug"] != undefined) {
     globalChart.leteral_error_chart.refresh(Math.abs(jObj["controller_debug"]["leteral_error"]));
@@ -126,12 +132,19 @@ function handleWSMessage(message_content) {
   }
   // console.log(JSON.parse(message_content));
 }
+
 const decoder = new TextDecoder("utf-8");
 function checkWsStatus() {
   var nd = document.getElementById("ws_status");
+  var now_ms = Date.now();
   if(ws_connected) {
-    nd.innerHTML = "Connected";
-    nd.style = "background-color: rgb(0, 185, 15); margin-left: 20px;";
+    if(now_ms - lastMessageTime > 1000) {
+      nd.innerHTML = "Timeout";
+      nd.style = "background-color: rgb(231 29 255); margin-left: 20px;";
+    } else {
+      nd.innerHTML = "Connected";
+      nd.style = "background-color: rgb(0, 185, 15); margin-left: 20px;";
+    }
   }else{
     nd.innerHTML = "Connecting";
     nd.style = "background-color: orange; margin-left: 20px;";
@@ -371,10 +384,10 @@ window.onload = function(){
     titleMinFontSize: "10px",
     titlePosition: "below",
   });
-  document.getElementById("nodestatus_tab_link").click();
+  // document.getElementById("nodestatus_tab_link").click();
   // document.getElementById("global_map_link").click();
   
-  // document.getElementById("controller_tab_link").click();
+  document.getElementById("controller_tab_link").click();
 
 }
 
@@ -418,4 +431,12 @@ function addLogMessage(title, message) {
   logList.insertBefore(newLogItem, logList.firstChild);
 }
 
-addLogMessage('Test Log', 'Hello world');
+// addLogMessage('Test Log', 'Hello world');
+function setCompassDirection(rad) {
+  rad = -rad;
+  var arrow = document.getElementById('compassArrow');
+  // 由于初始箭头指向上方，我们需要将其旋转90度（π/2 rad）使其指向右方作为基准方向
+  var rotation = rad + Math.PI / 2; // 加上90度的调整值
+  arrow.style.transform = `rotate(${rotation}rad)`;
+  arrow.style.transformOrigin = '50% 50%'; // 以箭头中心为旋转中心
+}

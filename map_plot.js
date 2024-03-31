@@ -16,7 +16,7 @@ var lineGenerator = d3
   .curve(d3.curveBasis); // 这里使用curveBasis生成平滑曲线
 
 // 在SVG容器中绘制曲线
-var svg = d3.select("svg"),
+var svg = d3.select("#global_map_svg"),
   margin = { top: 60, right: 60, bottom: 60, left: 60 },
   width = +svg.attr("width") - margin.left - margin.right,
   height = +svg.attr("height") - margin.top - margin.bottom;
