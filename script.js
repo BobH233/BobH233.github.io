@@ -90,6 +90,11 @@ function handleWSMessage(message_content) {
   if(jObj != {}) {
     lastMessageTime = Date.now();
   }
+  if(jObj["vn_ins"] != undefined) {
+    document.getElementById("pos_stddev_value").innerText = `pos_stddev: ${jObj["vn_ins"]["pos_stddev_ins"].toFixed(3)}`;
+    document.getElementById("vel_stddev_value").innerText = `vel_stddev: ${jObj["vn_ins"]["vel_stddev_ins"].toFixed(3)}`;
+    document.getElementById("orie_stddev_value").innerText = `${jObj["vn_ins"]["orientation_stddev"]["x"].toFixed(3)}, \n ${jObj["vn_ins"]["orientation_stddev"]["y"].toFixed(3)}, \n ${jObj["vn_ins"]["orientation_stddev"]["z"].toFixed(3)}`;
+  }
   if(jObj["eye_planner_state"] != undefined) {
     lastPlannerStateTime = Date.now();
     planner_state_dict.forEach((item) => {
