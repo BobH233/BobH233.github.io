@@ -100,6 +100,7 @@ function handleWSMessage(message_content) {
     planner_state_dict.forEach((item) => {
       setStatusDotColor(jObj["eye_planner_state"], item["greenValue"], item["name"]);
     });
+    document.getElementById("lap_count").innerText = `${jObj["eye_planner_state"]["lap_count"]}`;
   }
   if(jObj["ego_loc"] != undefined) {
     document.getElementById("veh_pos_X").innerText = `X: ${jObj["ego_loc"]["position"]["x"].toFixed(3)}`;
