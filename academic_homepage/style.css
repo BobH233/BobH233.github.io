@@ -200,6 +200,40 @@ section h2 {
     margin: 0.5rem 0;
 }
 
+/* Demo Videos Section */
+.demo-item {
+    margin-bottom: 2rem;
+}
+
+.demo-item h3 {
+    margin-bottom: 1rem;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto; /* center the video container */
+    background: #000;
+    aspect-ratio: 16 / 9; /* keep 16:9 proportion without padding hack */
+    position: relative;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* Video Section */
+video {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
 /* Footer */
 footer {
     text-align: center;
