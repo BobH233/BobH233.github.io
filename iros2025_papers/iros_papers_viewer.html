@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IROS 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --primary-light: #764ba2;
+            --secondary-color: #f093fb;
+            --accent-color: #4facfe;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --background-light: #f7fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo i {
+            font-size: 32px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Search and Filters */
+        .controls {
+            background: var(--white);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 16px;
+            background: var(--background-light);
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 18px;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .keyword-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .keyword-tag {
+            padding: 8px 16px;
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .keyword-tag.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        /* Papers Grid */
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .paper-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paper-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .paper-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-large);
+            border-color: var(--primary-color);
+        }
+
+        .paper-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .paper-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .keyword {
+            padding: 4px 12px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .paper-abstract {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .paper-abstract.expanded {
+            -webkit-line-clamp: unset;
+            display: block;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 8px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--primary-light);
+        }
+
+        /* Loading and Empty States */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+
+        .loading i {
+            font-size: 48px;
+            margin-bottom: 16px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .stats {
+                gap: 16px;
+            }
+
+            .papers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                margin: 20px 0;
+                padding: 20px;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .logo h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <h1>IROS 2025</h1>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalPapers">-</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="filteredPapers">-</div>
+                        <div class="stat-label">Display</div>
+                    </div>
+                    <button onclick="clearCache()" style="padding: 8px 16px; margin-left: 16px; background: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 12px;">Clear Cache</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="controls">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" class="search-box" placeholder="Search Title or Abstract">
+            </div>
+            <div class="filters">
+                <span class="filter-label">keywords:</span>
+                <div class="keyword-filter" id="keywordFilter">
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <i class="fas fa-spinner"></i>
+            <div>Loading...</div>
+        </div>
+
+        <div class="papers-grid" id="papersGrid" style="display: none;">
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <i class="fas fa-search"></i>
+            <div>No matching papers found</div>
+            <div style="font-size: 14px; margin-top: 8px;">Try other keywords</div>
+        </div>
+    </div>
+
+    <script>
+        let papersData = [];
+        let filteredPapers = [];
+        let selectedKeywords = new Set();
+
+        async function loadPapersData() {
+            try {
+                // 定义缓存键名
+                const CACHE_KEY = 'iros2025_papers_data';
+                const CACHE_VERSION_KEY = 'iros2025_papers_cache_version';
+                const CURRENT_VERSION = '1.0'; // 如果需要强制更新缓存，可以修改这个版本号
+                
+                // 检查本地缓存
+                const cachedData = localStorage.getItem(CACHE_KEY);
+                const cachedVersion = localStorage.getItem(CACHE_VERSION_KEY);
+                
+                if (cachedData && cachedVersion === CURRENT_VERSION) {
+                    // 使用缓存数据
+                    console.log('Loading data from cache...');
+                    const data = JSON.parse(cachedData);
+                    papersData = data.papers || [];
+                    filteredPapers = [...papersData];
+                    
+                    updateStats();
+                    generateKeywordFilters();
+                    renderPapers();
+                    
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('papersGrid').style.display = 'grid';
+                } else {
+                    // 从后端获取数据
+                    console.log('Loading data from server...');
+                    const response = await fetch('iros25_papers_essentials.json');
+                    const data = await response.json();
+                    
+                    // 保存到本地缓存
+                    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+                    localStorage.setItem(CACHE_VERSION_KEY, CURRENT_VERSION);
+                    console.log('Data cached locally.');
+                    
+                    papersData = data.papers || [];
+                    filteredPapers = [...papersData];
+                    
+                    updateStats();
+                    generateKeywordFilters();
+                    renderPapers();
+                    
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('papersGrid').style.display = 'grid';
+                }
+            } catch (error) {
+                console.error('Failed to load data:', error);
+                document.getElementById('loading').innerHTML = `
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>Failed to load data</div>
+                    <div style="font-size: 14px; margin-top: 8px;">Please check network connection</div>
+                `;
+            }
+        }
+
+        // 更新统计信息
+        function updateStats() {
+            document.getElementById('totalPapers').textContent = papersData.length;
+            document.getElementById('filteredPapers').textContent = filteredPapers.length;
+        }
+
+        // 生成关键词筛选器
+        function generateKeywordFilters() {
+            const keywordCount = {};
+            papersData.forEach(paper => {
+                paper.keywords.forEach(keyword => {
+                    keywordCount[keyword] = (keywordCount[keyword] || 0) + 1;
+                });
+            });
+
+            // 获取最热门的关键词
+            const topKeywords = Object.entries(keywordCount)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 15)
+                .map(([keyword]) => keyword);
+
+            const keywordFilter = document.getElementById('keywordFilter');
+            keywordFilter.innerHTML = topKeywords.map(keyword => 
+                `<span class="keyword-tag" data-keyword="${keyword}">${keyword}</span>`
+            ).join('');
+
+            // 添加点击事件
+            keywordFilter.addEventListener('click', (e) => {
+                if (e.target.classList.contains('keyword-tag')) {
+                    const keyword = e.target.dataset.keyword;
+                    if (selectedKeywords.has(keyword)) {
+                        selectedKeywords.delete(keyword);
+                        e.target.classList.remove('active');
+                    } else {
+                        selectedKeywords.add(keyword);
+                        e.target.classList.add('active');
+                    }
+                    filterPapers();
+                }
+            });
+        }
+
+        // 筛选论文
+        function filterPapers() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            filteredPapers = papersData.filter(paper => {
+                // 搜索筛选
+                const matchesSearch = !searchTerm || 
+                    paper.title.toLowerCase().includes(searchTerm) || 
+                    paper.abstract.toLowerCase().includes(searchTerm);
+
+                // 关键词筛选
+                const matchesKeywords = selectedKeywords.size === 0 || 
+                    [...selectedKeywords].every(keyword => 
+                        paper.keywords.includes(keyword)
+                    );
+
+                return matchesSearch && matchesKeywords;
+            });
+
+            updateStats();
+            renderPapers();
+        }
+
+        // 渲染论文
+        function renderPapers() {
+            const papersGrid = document.getElementById('papersGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            if (filteredPapers.length === 0) {
+                papersGrid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            papersGrid.style.display = 'grid';
+
+            papersGrid.innerHTML = filteredPapers.map((paper, index) => `
+                <div class="paper-card">
+                    <div class="paper-title">${paper.title}</div>
+                    <div class="paper-keywords">
+                        ${paper.keywords.map(keyword => 
+                            `<span class="keyword">${keyword}</span>`
+                        ).join('')}
+                    </div>
+                    <div class="paper-abstract" id="abstract-${index}">
+                        ${paper.abstract || 'No Abstract'}
+                    </div>
+                    ${paper.abstract && paper.abstract.length > 200 ? 
+                        `<span class="read-more" onclick="toggleAbstract(${index})">Show More</span>` : ''
+                    }
+                </div>
+            `).join('');
+        }
+
+        // 切换摘要展开/收起
+        function toggleAbstract(index) {
+            const abstractElement = document.getElementById(`abstract-${index}`);
+            const readMoreElement = abstractElement.nextElementSibling;
+            
+            if (abstractElement.classList.contains('expanded')) {
+                abstractElement.classList.remove('expanded');
+                readMoreElement.textContent = 'Show More';
+            } else {
+                abstractElement.classList.add('expanded');
+                readMoreElement.textContent = 'Show Less';
+            }
+        }
+
+        // 清除缓存
+        function clearCache() {
+            const CACHE_KEY = 'iros2025_papers_data';
+            const CACHE_VERSION_KEY = 'iros2025_papers_cache_version';
+            
+            localStorage.removeItem(CACHE_KEY);
+            localStorage.removeItem(CACHE_VERSION_KEY);
+            
+            alert('缓存已清除，页面将重新加载');
+            location.reload();
+        }
+
+        // 搜索事件监听
+        document.getElementById('searchInput').addEventListener('input', filterPapers);
+
+        // 初始化
+        loadPapersData();
+    </script>
+</body>
+</html>
