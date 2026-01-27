@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车辆顶视图及轮胎信息</title>
+<style>
+  .container {
+    position: relative;
+    width: 500px; /* 调整为你的图片宽度 */
+    height: 300px; /* 调整为你的图片高度 */
+  }
+  .container img {
+    width: 100%;
+    height: auto;
+  }
+  .wheel-info {
+    position: absolute;
+    color: white; /* 根据需要调整文本颜色 */
+    background-color: rgba(0, 0, 0, 0.5); /* 轻微的背景色 */
+    padding: 5px;
+    border-radius: 5px; /* 圆角边框 */
+  }
+  /* 分别定位四个轮胎信息，这里的值需要根据实际图片尺寸调整 */
+  .front-left {
+    top: 180px;
+    left: 20px;
+  }
+  .front-right {
+    top: 180px;
+    right: 20px;
+  }
+  .back-left {
+    top: 700px;
+    left: 20px;
+  }
+  .back-right {
+    top: 700px;
+    right: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="./img/car.png" alt="车辆顶视图">
+  <div class="wheel-info front-left">前左轮信息</div>
+  <div class="wheel-info front-right">前右轮信息</div>
+  <div class="wheel-info back-left">后左轮信息</div>
+  <div class="wheel-info back-right">后右轮信息</div>
+</div>
+
+</body>
+</html>
