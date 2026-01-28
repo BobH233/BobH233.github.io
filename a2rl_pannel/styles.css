@@ -380,3 +380,18 @@ body, html {
   height: 100%;
   display: block;
 }
+
+/* Achievement Banner */
+.achievement-banner {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  background-color: #3a3a1f;
+  color: #fff3b0;
+  border: 1px solid #6c6c3b;
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 40;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  font-weight: bold;
+}

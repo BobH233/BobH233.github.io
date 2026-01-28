@@ -102,6 +102,18 @@ section h2 {
     margin-bottom: 1.5rem;
 }
 
+/* Announcement Banner */
+.announcement-banner {
+    background: #fff8db;
+    color: #6b5e00;
+    border: 1px solid #f0e4a3;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
 /* About Section */
 .about-container {
     display: flex;
