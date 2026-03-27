@@ -103,6 +103,20 @@
 
         <section id="publications">
             <h2>Publications</h2>
+            <div class="publication-item publication-featured">
+                <div class="publication-image">
+                    <img src="./images/cubifygs.png" alt="CubifyGS overview">
+                </div>
+                <div class="publication-info">
+                    <h3>CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance</h3>
+                    <p><strong>Bohan Ren</strong>, Dianyi Yang, Shiyang Liu, Yu Gao, Jiadong Tang, Zhilin Lai, Yi Yang*, Mengyin Fu</p>
+                    <p><em>Preprint</em></p>
+                    <details class="publication-details">
+                        <summary>Abstract</summary>
+                        <p class="publication-abstract">CubifyGS is an object-centric mapping framework for lifelong scene maintenance in dynamic environments with frequent rigid object rearrangement. Instead of relying on slow primitive-level re-optimization that often leaves persistent ghosting artifacts, it updates 3D Gaussian assets through spatio-temporal dynamics perception, global asset retrieval, rigid transformation, and explicit pruning. An event-triggered adaptive optimization strategy then refines only the affected regions, improving both artifact suppression and long-term maintenance efficiency on a newly constructed high-fidelity dynamic benchmark.</p>
+                    </details>
+                </div>
+            </div>
             <div class="publication-item">
                 <div class="publication-image">
                     <img src="./images/opengsfusion.png" alt="Publication image placeholder">
@@ -111,6 +125,10 @@
                     <h3><a href="https://young-bit.github.io/opengs-fusion.github.io/" target="_blank">OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding</a></h3>
                     <p>Dianyi Yang, Xihan Wang, Yu Gao, Liu shiyang, <strong>Bohan Ren</strong>, Yufeng Yue, Yi Yang*</p>
                     <p><em>IROS 2025</em></p>
+                    <details class="publication-details">
+                        <summary>Abstract</summary>
+                        <p class="publication-abstract">OpenGS-Fusion is an open-vocabulary dense mapping framework that couples 3D Gaussian Splatting with a TSDF representation for on-the-fly, lossless semantic fusion. It further introduces MLLM-Assisted Adaptive Thresholding to refine 3D object segmentation under open-ended language queries, substantially improving object-level understanding and delivering stronger scene reconstruction and language-guided interaction performance than prior methods.</p>
+                    </details>
                 </div>
             </div>
             <div class="publication-item">
@@ -121,6 +139,10 @@
                     <h3><a href="https://arxiv.org/abs/2507.20480" target="_blank">Automated 3D-GS Registration and Fusion Via Skeleton Alignment and Gaussian-Adaptive Features</a></h3>
                     <p>Liu shiyang, Dianyi Yang, Yu Gao, <strong>Bohan Ren</strong>, Yi Yang*, Mengyin Fu</p>
                     <p><em>IROS 2025</em></p>
+                    <details class="publication-details">
+                        <summary>Abstract</summary>
+                        <p class="publication-abstract">This work presents an automated framework for 3D Gaussian Splatting sub-map registration and fusion without manual reference-map selection. By combining cross-scene geometric skeleton extraction with ellipsoid-aware convolution and a multi-factor Gaussian fusion strategy, it improves both alignment accuracy and post-fusion rendering quality, delivering more reliable 3D scene representation for robotic perception and autonomous navigation.</p>
+                    </details>
                 </div>
             </div>
             <div class="publication-item">
@@ -141,6 +163,10 @@
                     <h3><a href="https://pure.bit.edu.cn/en/publications/transferring-prior-thermal-knowledge-for-snowy-urban-scene-semant" target="_blank">Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation</a></h3>
                     <p>Xiaodong Guo, Tong Liu, Yefeng Mou, Siyuan Chai, <strong>Bohan Ren</strong>, Yijin Wang</p>
                     <p><em>IEEE TITS</em></p>
+                    <details class="publication-details">
+                        <summary>Abstract</summary>
+                        <p class="publication-abstract">This work targets RGB-thermal semantic segmentation in snowy urban scenes by addressing both the lack of training data and practical deployment constraints. It introduces the SUS dataset and a knowledge-distillation framework built around MCNet, where prior thermal knowledge from an RGB-T teacher is transferred to an efficient RGB student, leading to stronger segmentation performance than existing methods on both SUS and MFNet.</p>
+                    </details>
                 </div>
             </div>
              <div class="publication-item">
@@ -262,6 +288,13 @@
 
         <section id="demos">
             <h2>Demo Videos</h2>
+            <div class="demo-item">
+                <h3>A2RL Grand Prix Video</h3>
+                <div class="video-container">
+                    <iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=115948531089723&amp;bvid=BV1v1zrB3EXE&amp;cid=35579825031&amp;p=1&amp;autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+                    </iframe>
+                </div>
+            </div>
             <div class="demo-item">
                 <h3>iDepthMIDI Demo</h3>
                 <div class="video-container">

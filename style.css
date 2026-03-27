@@ -211,10 +211,39 @@ section h2 {
 
 .publication-info h3, .project-info h3 {
     margin-top: 0;
+    margin-bottom: 0.6rem;
 }
 
 .publication-info p, .project-info p {
     margin: 0.5rem 0;
+}
+
+.publication-details {
+    margin-top: 0.7rem;
+}
+
+.publication-details summary {
+    cursor: pointer;
+    color: #0077cc;
+    font-weight: 600;
+    user-select: none;
+}
+
+.publication-details summary:hover {
+    text-decoration: underline;
+}
+
+.publication-details[open] summary {
+    margin-bottom: 0.7rem;
+}
+
+.publication-abstract {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    background: linear-gradient(180deg, #f8fbff 0%, #f3f7fb 100%);
+    border-left: 3px solid #0077cc;
+    border-radius: 6px;
+    color: #425466;
 }
 
 /* Demo Videos Section */
