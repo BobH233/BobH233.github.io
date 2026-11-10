@@ -330,9 +330,9 @@ dialog::backdrop { background: #223e4cd4; }
   .identity-copy > p { font-size: 12px; margin-top: 5px; }
   .contact-button { grid-column: 2; grid-row: 1; margin-top: 17px; margin-left: 0; font-size: 10px; padding: 8px 11px; min-height: 35px; }
   .contact-button .icon { width: 14px; height: 14px; }
-  .profile-tabs { padding: 0 7px; justify-content: space-between; gap: 0; height: 52px; }
-  .profile-tab { font-size: 11px; padding: 0 3px; gap: 3px; }
-  .profile-tab .icon { width: 16px; height: 16px; }
+  .profile-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 0; gap: 0; height: 52px; }
+  .profile-tab { min-width: 0; justify-content: center; font-size: 11px; padding: 0 2px; gap: 3px; }
+  .profile-tab .icon { flex-shrink: 0; width: 16px; height: 16px; }
   .profile-tab > span { display: none; }
   .profile-tab.is-active:after { left: 8px; right: 8px; }
   .page-grid { display: block; padding-top: 23px; }
@@ -374,9 +374,8 @@ dialog::backdrop { background: #223e4cd4; }
   .dialog-image { max-height: 65dvh; }
 }
 @media (max-width: 360px) {
-  .profile-tabs { padding: 0 4px; }
-  .profile-tab { padding: 0 3px; gap: 3px; font-size: 10px; }
-  .profile-tab .icon { width: 14px; height: 14px; }
+  .profile-tab { gap: 2px; font-size: 10px; }
+  .profile-tab .icon { width: 12px; height: 12px; }
   .profile-tab > span { display: none; }
   .cover-copy > p { font-size: 28px; }
   .filter-button { padding: 7px 9px; }
