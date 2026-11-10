@@ -46,7 +46,6 @@ button:active { transform: translateY(1px); }
 .cover-art { position: relative; width: 440px; height: 214px; flex-shrink: 0; margin-right: 40px; }
 .orbit { position: absolute; border: 1px solid #b2cfe0; width: 330px; height: 155px; left: 64px; top: 29px; border-radius: 50%; transform: rotate(-19deg); }
 .orbit-two { transform: rotate(22deg); width: 270px; height: 180px; left: 90px; top: 12px; }
-.cover-sun { position: absolute; top: -18px; right: -23px; width: 104px; height: 104px; border-radius: 50%; background: #fae9a2; color: #c8a33b; text-align: center; font-size: 65px; line-height: 108px; transform: rotate(15deg); }
 .research-tile { position: absolute; border: 5px solid #fff; border-radius: 24px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; width: 116px; height: 126px; }
 .research-tile .icon { width: 51px; height: 51px; stroke-width: 1.15; }
 .research-tile span { font-size: 13px; font-weight: 700; }
@@ -275,7 +274,6 @@ dialog::backdrop { background: #223e4cd4; }
   .orbit-two { left: 18px; }
   .tile-vision { left: 10px; }
   .tile-action { right: -10px; }
-  .cover-sun { right: -40px; }
   .orbit-star { left: -22px; }
   .profile-identity { padding: 0 23px 23px; gap: 15px; flex-wrap: wrap; }
   .profile-avatar { width: 100px; height: 100px; margin-top: -24px; }
@@ -314,14 +312,16 @@ dialog::backdrop { background: #223e4cd4; }
   html { scroll-padding-top: 25px; }
   .site-container { padding: 0 13px; margin-top: 13px; }
   .profile-header { border-radius: 16px; }
-  .profile-cover { height: 172px; padding: 21px 22px; }
+  .profile-cover { height: 244px; padding: 22px; align-items: flex-start; }
   .cover-copy > p { font-size: 30px; letter-spacing: -1px; }
-  .cover-art { position: absolute; width: 190px; transform: scale(.7); right: 6px; top: -5px; height: 214px; }
-  .orbit { left: -25px; width: 220px; }
-  .orbit-two, .tile-vision { display: none; }
-  .tile-action { right: 0; top: 78px; }
-  .cover-sun { right: 0; top: 2px; }
-  .orbit-star { display: none; }
+  .cover-art { position: absolute; display: flex; align-items: center; justify-content: center; gap: 18px; width: 198px; height: 94px; right: 22px; top: auto; bottom: 25px; margin: 0; transform: none; }
+  .cover-art .orbit { width: 198px; height: 92px; left: 0; top: 0; transform: rotate(-12deg); }
+  .orbit-two, .orbit-star { display: none; }
+  .research-tile { position: relative; flex: 0 0 80px; width: 80px; height: 86px; border-width: 3px; border-radius: 18px; gap: 3px; }
+  .research-tile .icon { width: 33px; height: 33px; }
+  .research-tile span { font-size: 10px; }
+  .tile-vision { left: auto; top: auto; transform: rotate(-8deg); }
+  .tile-action { right: auto; top: auto; transform: rotate(8deg); }
   .profile-identity { padding: 0 18px 20px; gap: 0; display: grid; grid-template-columns: 1fr auto; align-items: start; }
   .profile-avatar { width: 92px; height: 92px; margin-top: -25px; grid-column: 1; grid-row: 1; }
   .identity-copy { grid-row: 2; grid-column: 1/-1; padding-top: 9px; }
@@ -379,7 +379,6 @@ dialog::backdrop { background: #223e4cd4; }
   .profile-tab .icon { width: 14px; height: 14px; }
   .profile-tab > span { display: none; }
   .cover-copy > p { font-size: 28px; }
-  .cover-art { right: -3px; transform: scale(.52); }
   .filter-button { padding: 7px 9px; }
   .video-grid { grid-template-columns: 1fr; }
   .work-copy h3 { font-size: 18px; }
