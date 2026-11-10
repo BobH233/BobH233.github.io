@@ -1,0 +1,421 @@
+{
+  "publications": [
+    {
+      "id": "cubifygs",
+      "type": "paper",
+      "year": 2026,
+      "title": "CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance",
+      "authors": "Bohan Ren, Dianyi Yang, Shiyang Liu, Yu Gao, Jiadong Tang, Zhilin Lai, Yi Yang*, Mengyin Fu",
+      "venue": "IROS 2026 (Accepted)",
+      "image": "images/cubifygs.png",
+      "url": "https://arxiv.org/abs/2606.28720",
+      "abstract": "CubifyGS is an object-centric mapping framework for lifelong scene maintenance in dynamic environments with frequent rigid object rearrangement. Instead of relying on slow primitive-level re-optimization that often leaves persistent ghosting artifacts, it updates 3D Gaussian assets through spatio-temporal dynamics perception, global asset retrieval, rigid transformation, and explicit pruning. An event-triggered adaptive optimization strategy then refines only the affected regions, improving both artifact suppression and long-term maintenance efficiency on a newly constructed high-fidelity dynamic benchmark.",
+      "bibtex": "@inproceedings{ren2026cubifygs,\n  title={{CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance}},\n  author={Ren, Bohan and Yang, Dianyi and Liu, Shiyang and Gao, Yu and Tang, Jiadong and Lai, Zhilin and Yang, Yi and Fu, Mengyin},\n  booktitle={2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  year={2026},\n  note={Accepted},\n  url={https://arxiv.org/abs/2606.28720}\n}"
+    },
+    {
+      "id": "opengs-fusion",
+      "type": "paper",
+      "year": 2025,
+      "title": "OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding",
+      "authors": "Dianyi Yang, Xihan Wang, Yu Gao, Shiyang Liu, Bohan Ren, Yufeng Yue, Yi Yang*",
+      "venue": "IROS 2025",
+      "image": "images/opengsfusion.png",
+      "url": "https://young-bit.github.io/opengs-fusion.github.io/",
+      "abstract": "OpenGS-Fusion is an open-vocabulary dense mapping framework that couples 3D Gaussian Splatting with a TSDF representation for on-the-fly, lossless semantic fusion. It further introduces MLLM-Assisted Adaptive Thresholding to refine 3D object segmentation under open-ended language queries, substantially improving object-level understanding and delivering stronger scene reconstruction and language-guided interaction performance than prior methods.",
+      "bibtex": "@inproceedings{yang2025opengsfusion,\n  title={{OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding}},\n  author={Yang, Dianyi and Wang, Xihan and Gao, Yu and Liu, Shiyang and Ren, Bohan and Yue, Yufeng and Yang, Yi},\n  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  pages={21135--21142},\n  year={2025},\n  publisher={IEEE},\n  doi={10.1109/IROS60139.2025.11247378}\n}"
+    },
+    {
+      "id": "gaussian-registration",
+      "type": "paper",
+      "year": 2025,
+      "title": "Automated 3D-GS Registration and Fusion Via Skeleton Alignment and Gaussian-Adaptive Features",
+      "authors": "Shiyang Liu, Dianyi Yang, Yu Gao, Bohan Ren, Yi Yang*, Mengyin Fu",
+      "venue": "IROS 2025",
+      "image": "images/automated_3dgs_reg.png",
+      "url": "https://arxiv.org/abs/2507.20480",
+      "abstract": "This work presents an automated framework for 3D Gaussian Splatting sub-map registration and fusion without manual reference-map selection. By combining cross-scene geometric skeleton extraction with ellipsoid-aware convolution and a multi-factor Gaussian fusion strategy, it improves both alignment accuracy and post-fusion rendering quality, delivering more reliable 3D scene representation for robotic perception and autonomous navigation.",
+      "bibtex": "@inproceedings{liu2025automated,\n  title={{Automated 3D-GS Registration and Fusion via Skeleton Alignment and Gaussian-Adaptive Features}},\n  author={Liu, Shiyang and Yang, Dianyi and Gao, Yu and Ren, Bohan and Yang, Yi and Fu, Mengyin},\n  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  pages={8158--8165},\n  year={2025},\n  publisher={IEEE},\n  doi={10.1109/IROS60139.2025.11247359}\n}"
+    },
+    {
+      "id": "roadsidesplat",
+      "type": "paper",
+      "year": 2025,
+      "title": "RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance",
+      "authors": "Zhaoxiang Liang, Wenjun Guo, Bohan Ren, Yi Yang*",
+      "venue": "IROS 2025",
+      "image": "images/RoadsideSplat.jpg",
+      "url": null,
+      "abstract": null,
+      "bibtex": "@inproceedings{liang2025roadsidesplat,\n  title={{RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance}},\n  author={Liang, Zhaoxiang and Guo, Wenjun and Ren, Bohan and Yang, Yi},\n  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  pages={14210--14217},\n  year={2025},\n  publisher={IEEE},\n  doi={10.1109/IROS60139.2025.11246928}\n}"
+    },
+    {
+      "id": "thermal-knowledge",
+      "type": "paper",
+      "year": 2025,
+      "title": "Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation",
+      "authors": "Xiaodong Guo, Tong Liu, Yefeng Mou, Siyuan Chai, Bohan Ren, Yijin Wang, Wei Shi, Siyuan Liu, Wujie Zhou",
+      "venue": "IEEE TITS",
+      "image": "images/transferring_prior.png",
+      "url": "https://pure.bit.edu.cn/en/publications/transferring-prior-thermal-knowledge-for-snowy-urban-scene-semant",
+      "abstract": "This work targets RGB-thermal semantic segmentation in snowy urban scenes by addressing both the lack of training data and practical deployment constraints. It introduces the SUS dataset and a knowledge-distillation framework built around MCNet, where prior thermal knowledge from an RGB-T teacher is transferred to an efficient RGB student, leading to stronger segmentation performance than existing methods on both SUS and MFNet.",
+      "bibtex": "@article{guo2025transferring,\n  title={{Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation}},\n  author={Guo, Xiaodong and Liu, Tong and Mou, Yefeng and Chai, Siyuan and Ren, Bohan and Wang, Yijin and Shi, Wei and Liu, Siyuan and Zhou, Wujie},\n  journal={IEEE Transactions on Intelligent Transportation Systems},\n  volume={26},\n  number={8},\n  pages={12474--12487},\n  year={2025},\n  publisher={IEEE},\n  doi={10.1109/TITS.2025.3555617}\n}"
+    },
+    {
+      "id": "3dgs-slam-thesis",
+      "type": "paper",
+      "year": 2025,
+      "title": "Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera",
+      "authors": "Bohan Ren",
+      "venue": "Undergraduate Thesis",
+      "image": "images/research_on_3dgs_slam.png",
+      "url": null,
+      "abstract": null,
+      "bibtex": "@mastersthesis{ren2025depthslam,\n  title={{Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera}},\n  author={Ren, Bohan},\n  school={Beijing Institute of Technology},\n  type={Undergraduate thesis},\n  year={2025}\n}"
+    }
+  ],
+  "projects": [
+    {
+      "id": "tgac-2025",
+      "type": "project",
+      "year": 2026,
+      "date": "January 2026",
+      "title": "3D Video Motion Capture",
+      "name": "Tencent Games Algorithm Competition 2025",
+      "image": "images/tgac_2025.png",
+      "url": "https://tgac.tencent.com/",
+      "description": "Recovering human motion from video, at the intersection of 3D vision, pose estimation, and motion reconstruction.",
+      "award": "7th place · 3D Video MoCap track · RMB 6,000 prize"
+    },
+    {
+      "id": "a2rl",
+      "type": "project",
+      "year": 2025,
+      "date": "November 2025",
+      "title": "A2RL: Autonomous Racing",
+      "name": "Autonomous Racing League",
+      "image": "images/a2rl.png",
+      "url": "https://a2rl.io/",
+      "description": "One of the main software engineers working on factor-graph track mapping, globally optimal trajectory design and optimization, and sensor calibration.",
+      "award": "Silver Group runner-up · Grand Prix · November 15, 2025",
+      "video": "https://www.bilibili.com/video/BV1v1zrB3EXE/"
+    },
+    {
+      "id": "idepthmidi",
+      "type": "project",
+      "year": 2024,
+      "date": "February 2024",
+      "title": "iDepthMIDI: A Depth-Sensing Gesture Interface",
+      "name": "iPhone TrueDepth · Gesture interaction",
+      "image": "images/idepth.png",
+      "url": null,
+      "description": "A contactless gesture interface using the iPhone TrueDepth camera. My work covers depth-sensing interaction design, the gesture-control pipeline, and software development.",
+      "award": null,
+      "video": "https://www.youtube.com/watch?v=XPWwDijG5D8"
+    }
+  ],
+  "news": [
+    {
+      "id": "iros2026-pittsburgh",
+      "date": "2026-10-11",
+      "location": "Pittsburgh, USA",
+      "text": "Back in the US after ten years — this time with a paper to present at IROS 2026!\nTalk done, poster up. Getting to explain my work and hear what other people thought was easily the best part.\nThen came the Pittsburgh side quests: CMU, the National Aviary, and a coffee that somehow tasted like Chinese braised duck. Still processing that last one. Thanks to Lorene for showing us around CMU!\nThe vlog ended up a little long. Apparently I had a lot I wanted to keep.",
+      "video_id": "iros2026-vlog"
+    },
+    {
+      "id": "iros2026-moments",
+      "date": "2026-10-10",
+      "location": "Pittsburgh, USA",
+      "source_url": "https://www.xiaohongshu.com/discovery/item/6ac9b25900000000150111e8",
+      "gallery_layout": "mixed",
+      "text": "A few favorite moments from IROS 2026 and Pittsburgh 🌉\nBetween the talk and poster session: walks by the river, yellow bridges, a funicular ride, museums, and the Cathedral of Learning. Thanks to Lorene for showing us around CMU! We also made it to the National Aviary and the robotics center.\nWalk, eat, repeat. Came with a paper, went home with a full camera roll and a very full stomach. Tired, happy, and already wanting to come back.",
+      "images": [
+        {
+          "src": "images/news/iros2026-presentation.jpg",
+          "alt": "Presenting at IROS 2026 in Pittsburgh",
+          "width": 1440,
+          "height": 804
+        },
+        {
+          "src": "images/news/iros2026-yellow-bridge.jpg",
+          "alt": "A yellow bridge over the river in Pittsburgh",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "src": "images/news/iros2026-poster.jpg",
+          "alt": "With the CubifyGS poster at IROS 2026",
+          "width": 1067,
+          "height": 1600
+        },
+        {
+          "src": "images/news/iros2026-cmu.jpg",
+          "alt": "Visiting the Robotics Innovation Center at Carnegie Mellon University",
+          "width": 1067,
+          "height": 1600
+        }
+      ]
+    },
+    {
+      "id": "china3dv2026-hangzhou",
+      "date": "2026-04-18",
+      "location": "Hangzhou, China",
+      "source_url": "https://www.xiaohongshu.com/discovery/item/69e2609d000000002202492f",
+      "text": "Third time in Hangzhou, this time for China3DV. Came away with lots of insights from leading researchers in 3D vision!",
+      "images": [
+        {
+          "src": "images/news/china3dv2026-registration.jpg",
+          "alt": "Registration at the fifth China 3D Vision Conference in Hangzhou",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "src": "images/news/china3dv2026-talk.jpg",
+          "alt": "Attending a talk at China3DV 2026",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "src": "images/news/china3dv2026-posters.jpg",
+          "alt": "The poster session at China3DV 2026",
+          "width": 1600,
+          "height": 1067
+        },
+        {
+          "src": "images/news/china3dv2026-hangzhou.jpg",
+          "alt": "Hangzhou at night after the conference",
+          "width": 1600,
+          "height": 1067
+        }
+      ]
+    },
+    {
+      "id": "iros2025-hangzhou",
+      "date": "2025-10-22",
+      "location": "Hangzhou, China",
+      "source_url": "https://www.xiaohongshu.com/discovery/item/68f8e6b90000000004023b41",
+      "text": "My first international academic conference: IROS 2025 in Hangzhou! Also my first time presenting at one, so I was pretty nervous 🥺 Still getting used to walking up to people and talking about research.\nI also brought an IROS-branded bottle back to the lab. A slightly unusual conference souvenir, but it had to come home with me.",
+      "images": [
+        {
+          "src": "images/news/iros2025-hangzhou.jpg",
+          "alt": "At the IROS 2025 sign in Hangzhou",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "src": "images/news/iros2025-talk.jpg",
+          "alt": "A talk on 3D Gaussian registration and fusion at IROS 2025",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "src": "images/news/iros2025-banquet.jpg",
+          "alt": "The IROS 2025 conference banquet",
+          "width": 1440,
+          "height": 1080
+        },
+        {
+          "src": "images/news/iros2025-souvenir.jpg",
+          "alt": "An IROS 2025 conference bag and souvenir",
+          "width": 1080,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "id": "a2rl2024-getting-ready",
+      "date": "2024-04-03",
+      "location": "Abu Dhabi, UAE",
+      "text": "Getting ready for A2RL in Abu Dhabi 🏎️\nA short look at the FlyEagle team preparing for the autonomous racing competition. Still a little wild to think that no one will be sitting in the driver's seat.",
+      "video_id": "a2rl2024-preparation"
+    },
+    {
+      "id": "cambridge2024-exchange",
+      "date": "2024-02-07",
+      "location": "Cambridge, UK",
+      "text": "Two weeks at Cambridge on a winter exchange programme, squeezed into a very long vlog 🎒\nI filmed the trip on my phone because I wanted something to look back on. Somehow it ended up nearly 38 minutes long.\nThanks to the “Tom Yum” crew for making the trip so much fun.",
+      "video_id": "cambridge2024-vlog"
+    }
+  ],
+  "videos": [
+    {
+      "id": "opengs-demo",
+      "title": "OpenGS-Fusion",
+      "description": "Open-vocabulary dense mapping and object-level understanding.",
+      "category": "Mapping",
+      "image": "images/opengsfusion.png",
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/watch?v=3twDhMUo290",
+      "embed": "https://www.youtube-nocookie.com/embed/3twDhMUo290?autoplay=1&start=2",
+      "featured": true
+    },
+    {
+      "id": "iros2026-vlog",
+      "title": "IROS 2026 · Back in the US, ten years later",
+      "description": "Conference talks, poster sessions, and a few detours around Pittsburgh, CMU, and the National Aviary.",
+      "category": "Conferences",
+      "image": "images/iros2026-vlog.jpg",
+      "platform": "Bilibili",
+      "date": "2026-10-11",
+      "url": "https://www.bilibili.com/video/BV1mXpj6nERt/",
+      "embed": "https://player.bilibili.com/player.html?isOutside=true&bvid=BV1mXpj6nERt&aid=117420815552574&cid=42644344187&p=1&autoplay=1"
+    },
+    {
+      "id": "a2rl-demo",
+      "title": "A2RL · On the track",
+      "description": "Autonomous racing, from mapping to the finish line.",
+      "category": "Robotics",
+      "image": "images/a2rl.png",
+      "platform": "Bilibili",
+      "url": "https://www.bilibili.com/video/BV1v1zrB3EXE/",
+      "embed": "https://player.bilibili.com/player.html?isOutside=true&bvid=BV1v1zrB3EXE&aid=115948531089723&cid=35579825031&p=1&autoplay=1"
+    },
+    {
+      "id": "a2rl-overview",
+      "title": "Inside the A2RL competition",
+      "description": "A closer look at autonomous racing.",
+      "category": "Robotics",
+      "image": "images/a2rl.png",
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/watch?v=D0B6tW7r7JM",
+      "embed": "https://www.youtube-nocookie.com/embed/D0B6tW7r7JM?autoplay=1"
+    },
+    {
+      "id": "idepth-demo",
+      "title": "iDepthMIDI · A gesture, a sound",
+      "description": "Depth sensing meets contactless musical interaction.",
+      "category": "Interaction",
+      "image": "images/idepth.png",
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/watch?v=XPWwDijG5D8",
+      "embed": "https://www.youtube-nocookie.com/embed/XPWwDijG5D8?autoplay=1"
+    },
+    {
+      "id": "a2rl2024-preparation",
+      "title": "A2RL · Getting ready to race",
+      "description": "The FlyEagle team prepares for autonomous formula racing in Abu Dhabi.",
+      "category": "Robotics",
+      "image": "images/a2rl2024-preparation.jpg",
+      "platform": "Bilibili",
+      "date": "2024-04-03",
+      "url": "https://www.bilibili.com/video/BV1ZC411L72g/",
+      "embed": "https://player.bilibili.com/player.html?isOutside=true&bvid=BV1ZC411L72g&aid=1952668879&cid=1491515987&p=1&autoplay=1"
+    },
+    {
+      "id": "cambridge2024-vlog",
+      "title": "Cambridge · Two weeks as a student",
+      "description": "A winter exchange programme at Cambridge, recorded in a 14-day travel vlog.",
+      "category": "Campus life",
+      "image": "images/cambridge2024-vlog.jpg",
+      "platform": "Bilibili",
+      "date": "2024-02-07",
+      "url": "https://www.bilibili.com/video/BV1SZ421z7Q1/",
+      "embed": "https://player.bilibili.com/player.html?isOutside=true&bvid=BV1SZ421z7Q1&aid=1150255755&cid=1432855806&p=1&autoplay=1"
+    }
+  ],
+  "friends": [
+    {
+      "id": "haoru-wang",
+      "name": "Haoru Wang",
+      "handle": "@ou524u",
+      "affiliation": "Peking University",
+      "url": "https://ou524u.github.io/",
+      "image": "images/friends/haoru-wang.jpg"
+    },
+    {
+      "id": "jiarui-shen",
+      "name": "Jiarui Shen",
+      "handle": "@Sjeary",
+      "affiliation": "Beijing Institute of Technology",
+      "url": "https://sjeary.com/",
+      "image": "images/friends/sjeary-photo.jpg"
+    },
+    {
+      "id": "dianyi-yang",
+      "name": "Dianyi Yang",
+      "handle": "@YOUNG-bit",
+      "affiliation": "Beijing Institute of Technology",
+      "url": "https://young-bit.github.io/Young-bit/",
+      "image": "images/friends/dianyi-yang.jpg"
+    },
+    {
+      "id": "skylergao",
+      "name": "SkylerGao",
+      "handle": "@SkylerGao",
+      "affiliation": "Beijing Institute of Technology",
+      "url": "https://github.com/SkylerGao",
+      "image": "images/friends/skylergao.jpg"
+    },
+    {
+      "id": "jiadong-tang",
+      "name": "Jiadong Tang",
+      "handle": "@BITyia",
+      "affiliation": "Beijing Institute of Technology",
+      "url": "https://github.com/BITyia",
+      "image": "images/friends/jiadong-tang.jpg"
+    },
+    {
+      "id": "xenon-w",
+      "name": "Yixian Wang",
+      "handle": "@xenon-w",
+      "affiliation": "Beijing Institute of Technology",
+      "url": "https://github.com/xenon-w",
+      "image": "images/friends/xenon-w.jpg"
+    },
+    {
+      "id": "krahsu",
+      "name": "CharlesHsu",
+      "handle": "@KraHsu",
+      "affiliation": "Beijing Institute of Technology",
+      "url": "https://github.com/KraHsu",
+      "image": "images/friends/krahsu.jpg"
+    },
+    {
+      "id": "jario-jin",
+      "name": "Ren Jin",
+      "handle": "@jario-jin",
+      "affiliation": "Beijing Institute of Technology",
+      "url": "https://github.com/jario-jin",
+      "image": "images/friends/jario-jin.jpg"
+    },
+    {
+      "id": "majid-khonji",
+      "name": "Majid Khonji",
+      "handle": "@majid-khonji",
+      "affiliation": "AV Lab, Khalifa University",
+      "url": "https://github.com/majid-khonji",
+      "image": "images/friends/majid-khonji.jpg"
+    },
+    {
+      "id": "murdism",
+      "name": "Murad Mebrahtu",
+      "handle": "@Murdism",
+      "affiliation": "Khalifa University",
+      "url": "https://github.com/Murdism",
+      "image": "images/friends/murdism.jpg"
+    },
+    {
+      "id": "flwfdd",
+      "name": "范滇东",
+      "handle": "@flwfdd",
+      "affiliation": "Fudan University",
+      "url": "https://github.com/flwfdd",
+      "image": "images/friends/flwfdd.jpg"
+    },
+    {
+      "id": "studyingfather",
+      "name": "Shuhao Zhang",
+      "handle": "@StudyingFather",
+      "affiliation": "Peking University",
+      "url": "https://github.com/StudyingFather",
+      "image": "images/friends/studyingfather.jpg"
+    },
+    {
+      "id": "zhelearn",
+      "name": "Zachary Liu",
+      "handle": "@zHElEARN",
+      "affiliation": "Changsha University of Science and Technology",
+      "url": "https://github.com/zHElEARN",
+      "image": "images/friends/zhelearn.jpg"
+    }
+  ]
+}

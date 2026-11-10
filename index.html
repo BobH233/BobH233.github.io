@@ -1,255 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bohan Ren | Robotics and Vision Research</title>
-        <meta name="description" content="Personal site of Bohan Ren at Beijing Institute of Technology, featuring research in robotics, 3D Gaussian Splatting, visual SLAM, scene reconstruction, and autonomous systems.">
-        <meta name="robots" content="index, follow">
-        <link rel="canonical" href="https://bobh233.github.io/">
-        <link rel="icon" type="image/png" href="/images/avatar.png">
-        <meta property="og:type" content="website">
-        <meta property="og:site_name" content="Bohan Ren">
-        <meta property="og:title" content="Bohan Ren | Robotics and Vision Research">
-        <meta property="og:description" content="Robotics, visual SLAM, 3DGS mapping, scene reconstruction, and autonomous systems from a BIT master's student.">
-        <meta property="og:url" content="https://bobh233.github.io/">
-        <meta property="og:image" content="https://bobh233.github.io/images/avatar.png">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Bohan Ren | Robotics and Vision Research">
-        <meta name="twitter:description" content="Robotics, visual SLAM, 3DGS mapping, scene reconstruction, and autonomous systems.">
-        <meta name="twitter:image" content="https://bobh233.github.io/images/avatar.png">
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Bohan Ren",
-            "url": "https://bobh233.github.io/",
-            "image": "https://bobh233.github.io/images/avatar.png",
-            "affiliation": {
-                "@type": "CollegeOrUniversity",
-                "name": "Beijing Institute of Technology"
-            },
-            "jobTitle": "Master's Student",
-            "sameAs": [
-                "https://github.com/BobH233"
-            ]
-        }
-        </script>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-        <meta name="theme-color" content="#ffffff">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>Bohan Ren</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#projects">Robotics & Vision Work</a></li>
-                <li><a href="#demos">Research Videos</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section id="about">
-            <div class="about-container">
-                <div class="profile-pic-container">
-                    <img src="./images/avatar.png" alt="Bohan Ren" class="profile-pic">
-                    <div class="profile-name">Bohan Ren</div>
-                    <div class="profile-affiliation">First-year Master's Student at BIT</div>
-                </div>
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>
-                        I am a first-year master's student in Control Science and Engineering at the School of Automation, Beijing Institute of Technology. I work on robot perception and mapping, with a current focus on visual 3DGS-SLAM, scene reconstruction, and lifelong scene maintenance in dynamic environments.
-                    </p>
-                    <p>
-                        My broader interests include robot localization and navigation, embodied perception for service robots, and autonomous systems that combine robust scene understanding with efficient deployment in real-world environments.
-                    </p>
-                    <div class="contact-links">
-                        <a href="https://github.com/BobH233" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://scholar.google.com/citations?user=N5gglbwAAAAJ" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="mailto:renbohan@bit.edu.cn"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="research">
-            <h2>Research Interests</h2>
-            <ul>
-                <li><strong>Visual 3DGS-SLAM:</strong> 3D Gaussian Splatting based mapping, localization, and online scene representation for robots.</li>
-                <li><strong>Lifelong Scene Maintenance:</strong> Real-time scene updating, object-centric map maintenance, and robust operation in dynamic environments.</li>
-                <li><strong>Embodied Perception:</strong> Spatial perception pipelines for service robots, autonomous navigation, and downstream interaction tasks.</li>
-                <li><strong>Robot Autonomy:</strong> Perception-driven planning and system integration for mobile robots and autonomous platforms.</li>
-            </ul>
-        </section>
-
-        <section id="publications">
-            <h2>Publications</h2>
-            <div class="publication-item publication-featured">
-                <div class="publication-image">
-                    <img src="./images/cubifygs.png" alt="CubifyGS overview">
-                </div>
-                <div class="publication-info">
-                    <h3><a href="https://arxiv.org/abs/2606.28720" target="_blank">CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance</a></h3>
-                    <p><strong>Bohan Ren</strong>, Dianyi Yang, Shiyang Liu, Yu Gao, Jiadong Tang, Zhilin Lai, Yi Yang*, Mengyin Fu</p>
-                    <p><em>IROS 2026 (Accepted)</em></p>
-                    <details class="publication-details">
-                        <summary>Abstract</summary>
-                        <p class="publication-abstract">CubifyGS is an object-centric mapping framework for lifelong scene maintenance in dynamic environments with frequent rigid object rearrangement. Instead of relying on slow primitive-level re-optimization that often leaves persistent ghosting artifacts, it updates 3D Gaussian assets through spatio-temporal dynamics perception, global asset retrieval, rigid transformation, and explicit pruning. An event-triggered adaptive optimization strategy then refines only the affected regions, improving both artifact suppression and long-term maintenance efficiency on a newly constructed high-fidelity dynamic benchmark.</p>
-                    </details>
-                </div>
-            </div>
-            <div class="publication-item">
-                <div class="publication-image">
-                    <img src="./images/opengsfusion.png" alt="Publication image placeholder">
-                </div>
-                <div class="publication-info">
-                    <h3><a href="https://young-bit.github.io/opengs-fusion.github.io/" target="_blank">OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding</a></h3>
-                    <p>Dianyi Yang, Xihan Wang, Yu Gao, Liu shiyang, <strong>Bohan Ren</strong>, Yufeng Yue, Yi Yang*</p>
-                    <p><em>IROS 2025</em></p>
-                    <details class="publication-details">
-                        <summary>Abstract</summary>
-                        <p class="publication-abstract">OpenGS-Fusion is an open-vocabulary dense mapping framework that couples 3D Gaussian Splatting with a TSDF representation for on-the-fly, lossless semantic fusion. It further introduces MLLM-Assisted Adaptive Thresholding to refine 3D object segmentation under open-ended language queries, substantially improving object-level understanding and delivering stronger scene reconstruction and language-guided interaction performance than prior methods.</p>
-                    </details>
-                </div>
-            </div>
-            <div class="publication-item">
-                <div class="publication-image">
-                    <img src="./images/automated_3dgs_reg.png" alt="Publication image placeholder">
-                </div>
-                <div class="publication-info">
-                    <h3><a href="https://arxiv.org/abs/2507.20480" target="_blank">Automated 3D-GS Registration and Fusion Via Skeleton Alignment and Gaussian-Adaptive Features</a></h3>
-                    <p>Liu shiyang, Dianyi Yang, Yu Gao, <strong>Bohan Ren</strong>, Yi Yang*, Mengyin Fu</p>
-                    <p><em>IROS 2025</em></p>
-                    <details class="publication-details">
-                        <summary>Abstract</summary>
-                        <p class="publication-abstract">This work presents an automated framework for 3D Gaussian Splatting sub-map registration and fusion without manual reference-map selection. By combining cross-scene geometric skeleton extraction with ellipsoid-aware convolution and a multi-factor Gaussian fusion strategy, it improves both alignment accuracy and post-fusion rendering quality, delivering more reliable 3D scene representation for robotic perception and autonomous navigation.</p>
-                    </details>
-                </div>
-            </div>
-            <div class="publication-item">
-                <div class="publication-image">
-                    <img src="./images/RoadsideSplat.jpg" alt="Publication image placeholder">
-                </div>
-                <div class="publication-info">
-                    <h3>RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance</h3>
-                    <p>Zhaoxiang Liang, Wenjun Guo, <strong>Bohan Ren</strong>, Yi Yang*</p>
-                    <p><em>IROS 2025</em></p>
-                </div>
-            </div>
-            <div class="publication-item">
-                <div class="publication-image">
-                    <img src="./images/transferring_prior.png" alt="Publication image placeholder">
-                </div>
-                <div class="publication-info">
-                    <h3><a href="https://pure.bit.edu.cn/en/publications/transferring-prior-thermal-knowledge-for-snowy-urban-scene-semant" target="_blank">Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation</a></h3>
-                    <p>Xiaodong Guo, Tong Liu, Yefeng Mou, Siyuan Chai, <strong>Bohan Ren</strong>, Yijin Wang</p>
-                    <p><em>IEEE TITS</em></p>
-                    <details class="publication-details">
-                        <summary>Abstract</summary>
-                        <p class="publication-abstract">This work targets RGB-thermal semantic segmentation in snowy urban scenes by addressing both the lack of training data and practical deployment constraints. It introduces the SUS dataset and a knowledge-distillation framework built around MCNet, where prior thermal knowledge from an RGB-T teacher is transferred to an efficient RGB student, leading to stronger segmentation performance than existing methods on both SUS and MFNet.</p>
-                    </details>
-                </div>
-            </div>
-             <div class="publication-item">
-                <div class="publication-image">
-                    <img src="./images/research_on_3dgs_slam.png" alt="Publication image placeholder">
-                </div>
-                <div class="publication-info">
-                    <h3>Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera</h3>
-                    <p><strong>Bohan Ren</strong></p>
-                    <p><em>Undergraduate Thesis</em></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Robotics & Vision Work</h2>
-            <div class="project-item">
-                <div class="project-image">
-                    <img src="./images/tgac_2025.png" alt="Tencent Games Algorithm Competition 2025 3D motion capture track">
-                </div>
-                <div class="project-info">
-                    <h3><a href="https://tgac.tencent.com/" target="_blank">Tencent Games Algorithm Competition 2025 (TGAC2025) - 3D Video MoCap Track</a></h3>
-                    <p><strong>Date:</strong> January 2026</p>
-                    <p><strong>Description:</strong> TGAC2025 is a university-level algorithm competition with a 3D Video MoCap track focused on recovering human motion from video. The task is closely related to 3D vision, pose estimation, motion reconstruction, and embodied perception.</p>
-                    <p><strong>Award:</strong> 7th place in the "3D Video MoCap" track; RMB 6,000 prize.</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <div class="project-image">
-                    <img src="./images/a2rl.png" alt="A2RL autonomous racing project">
-                </div>
-                <div class="project-info">
-                    <h3><a href="https://a2rl.io/" target="_blank">A2RL: Autonomous Racing Robotics Competition</a></h3>
-                    <p><strong>Date:</strong> November 2025</p>
-                    <p><strong>Description:</strong> A2RL is an international autonomous vehicle competition in Abu Dhabi focused on perception, mapping, planning, calibration, and high-speed autonomous driving systems. University and technology teams develop full-stack autonomy software for real race-car platforms.</p>
-                    <p><strong>My Work:</strong> One of the main software engineers, global track mapping based on factor graph, global optimal trajectory design and optimization, and sensor calibration.</p>
-                    <p><strong>Award:</strong> Silver Group runner-up (2nd place) at the Grand Prix on November 15, 2025. <a href="https://www.bilibili.com/video/BV1v1zrB3EXE/" target="_blank" rel="noopener">Watch video</a></p>
-                </div>
-            </div>
-            <div class="project-item">
-                <div class="project-image">
-                    <img src="./images/idepth.png" alt="iDepthMIDI TrueDepth camera gesture interface">
-                </div>
-                <div class="project-info">
-                    <h3>iDepthMIDI: A Depth-Sensing Gesture Interface Based on iPhone TrueDepth Camera</h3>
-                    <p><strong>Date:</strong> February 2024</p>
-                    <p><strong>Description:</strong> iDepthMIDI explores short-range depth perception and gesture interaction using the iPhone TrueDepth camera. It combines hand gesture detection with depth measurement to build a contactless control interface, with MIDI control as one application scenario.</p>
-                    <p><strong>My Work:</strong> Depth-sensing interaction design, gesture-control pipeline, and software development.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="demos">
-            <h2>Research Videos</h2>
-            <div class="demo-item">
-                <h3>A2RL Autonomous Racing Demo</h3>
-                <div class="video-container">
-                    <iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=115948531089723&amp;bvid=BV1v1zrB3EXE&amp;cid=35579825031&amp;p=1&amp;autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-                    </iframe>
-                </div>
-            </div>
-            <div class="demo-item">
-                <h3>A2RL Competition Overview</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/D0B6tW7r7JM?si=OT-R2aXJUrIk8w5_&amp;autoplay=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-                    </iframe>
-                </div>
-            </div>
-            <div class="demo-item">
-                <h3>iDepthMIDI Depth-Sensing Interface Demo</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/XPWwDijG5D8?si=XMjvlAFgB2KySotX&amp;autoplay=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-                    </iframe>
-                </div>
-            </div>
-            <div class="demo-item">
-                <h3>OpenGS-Fusion Demo</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/3twDhMUo290?start=2&amp;autoplay=0&amp;mute=1&amp;loop=1&amp;playlist=3twDhMUo290" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-                    </iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Bohan Ren. All Rights Reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bohan Ren | Robotics, Vision &amp; Research</title><meta name="description" content="Bohan Ren, second-year master&#x27;s student at BIT&#x27;s ININ Laboratory. Research in 3DGS-SLAM, with growing interests in VLA and Flow Matching."><meta name="robots" content="index, follow"><meta name="theme-color" content="#f5f8f6">
+<link rel="canonical" href="https://bobh233.github.io/"><link rel="icon" type="image/png" href="images/avatar-profile.png"><link rel="stylesheet" href="style.css?v=4c32d84620"><link rel="preload" href="assets/fonts/nunito-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Bohan Ren"><meta property="og:title" content="Bohan Ren | Robotics, Vision &amp; Research"><meta property="og:description" content="Bohan Ren, second-year master&#x27;s student at BIT&#x27;s ININ Laboratory. Research in 3DGS-SLAM, with growing interests in VLA and Flow Matching."><meta property="og:url" content="https://bobh233.github.io/"><meta property="og:image" content="https://bobh233.github.io/images/avatar-profile.png">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Bohan Ren | Robotics, Vision &amp; Research"><meta name="twitter:description" content="Bohan Ren, second-year master&#x27;s student at BIT&#x27;s ININ Laboratory. Research in 3DGS-SLAM, with growing interests in VLA and Flow Matching."><meta name="twitter:image" content="https://bobh233.github.io/images/avatar-profile.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Bohan Ren", "url": "https://bobh233.github.io/", "image": "https://bobh233.github.io/images/avatar-profile.png", "affiliation": {"@type": "CollegeOrUniversity", "name": "Beijing Institute of Technology"}, "memberOf": {"@type": "Organization", "name": "Integrated Navigation and Intelligent Navigation (ININ) Laboratory", "url": "https://lamps.bit-inin.com/"}, "jobTitle": "Second-year Master's Student", "sameAs": ["https://github.com/BobH233", "https://scholar.google.com/citations?user=N5gglbwAAAAJ"]}</script><script src="script.js?v=fc6edcc13b" defer></script></head>
+<body data-page="research"><a class="skip-link" href="#main-content">Skip to content</a>
+<div class="site-container"><section class="profile-header" aria-label="Bohan Ren's profile"><div class="profile-cover"><div class="cover-copy"><p>Robotics for<br><span>everyday life.</span></p></div><div class="cover-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="cover-sun">✳</div><div class="research-tile tile-vision"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#stack-2"></use></svg><span>perception</span></div><div class="research-tile tile-action"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#robot"></use></svg><span>action</span></div><span class="orbit-star">+</span></div></div><div class="profile-identity"><img class="profile-avatar" src="images/avatar-profile.png" alt="Bohan Ren" width="144" height="144" fetchpriority="high"><div class="identity-copy"><div class="name-line"><h1>Bohan Ren</h1><span class="name-pronunciation">@BobH233</span></div><p>Second-year master's student <span>·</span> <a class="lab-link" href="https://lamps.bit-inin.com/" target="_blank" rel="noopener noreferrer">ININ Lab</a>, BIT</p></div><a class="button primary contact-button" href="mailto:renbohan@bit.edu.cn"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#mail"></use></svg>Get in touch <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#arrow-up-right"></use></svg></a></div><nav class="profile-tabs" aria-label="Profile pages"><a class="profile-tab is-active" href="index.html" aria-current=page><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#school"></use></svg>Research<span>9</span></a><a class="profile-tab " href="news.html" ><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#news"></use></svg>News</a><a class="profile-tab " href="videos.html" ><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#movie"></use></svg>Videos<span>7</span></a><a class="profile-tab " href="about.html" ><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#user-circle"></use></svg>About</a><a class="profile-tab " href="friends.html" ><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#users"></use></svg>Friends</a></nav></section><div class="page-grid"><aside class="profile-sidebar" aria-label="Profile introduction"><section class="intro-card surface"><div class="card-heading"><h2>A little about me</h2><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#sparkles"></use></svg></div><ul class="profile-facts"><li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#school"></use></svg><span>Beijing Institute of Technology<br><small>School of Automation · Year 2</small></span></li><li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#navigation"></use></svg><a class="lab-link" href="https://lamps.bit-inin.com/" target="_blank" rel="noopener noreferrer">ININ Laboratory<br><small>组合导航与智能导航实验室</small></a></li><li><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#map-pin"></use></svg><span>Beijing, China</span></li></ul><a class="sidebar-about" href="about.html">More about me <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#arrow-up-right"></use></svg></a></section><section class="links-card surface"><h2>Find me elsewhere</h2><a class="profile-link" href="https://scholar.google.com/citations?user=N5gglbwAAAAJ" target="_blank" rel="noopener noreferrer"><span class="link-icon blue"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#school"></use></svg></span><span>Google Scholar</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#arrow-up-right"></use></svg></a><a class="profile-link" href="https://github.com/BobH233" target="_blank" rel="noopener noreferrer"><span class="link-icon green"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#brand-github"></use></svg></span><span>GitHub</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#arrow-up-right"></use></svg></a><a class="profile-link" href="mailto:renbohan@bit.edu.cn"><span class="link-icon yellow"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#mail"></use></svg></span><span>Email</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#arrow-up-right"></use></svg></a></section></aside><main id="main-content" tabindex="-1"><div class="feed-tools"><div class="filter-list" role="group" aria-label="Filter research"><button class="filter-button is-active" data-filter="all" aria-pressed="true">All work</button><button class="filter-button " data-filter="paper" aria-pressed="false">Publications</button><button class="filter-button " data-filter="project" aria-pressed="false">Projects</button><button class="filter-button " data-filter="saved" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg>Saved</button></div><label class="search-field"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#search"></use></svg><input type="search" id="work-search" placeholder="Search research" aria-label="Search research" autocomplete="off"></label></div>
+<div id="research-feed"><section class="year-group"><h2 class="year-heading"><span>2026</span><span class="year-line"></span></h2><article class="work-card surface" id="cubifygs" data-kind="paper" data-work="cubifygs">
+<div class="post-byline"><img class="mini-avatar" src="images/avatar-profile.png" alt="" width="36" height="36"><div><strong>Bohan Ren</strong><span>IROS 2026 (Accepted) · Publication</span></div><span class="featured-label"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#sparkles"></use></svg>Featured</span></div>
+<div class="work-copy"><span class="tag blue">IROS 2026 (Accepted)</span><h3><a class="" href="https://arxiv.org/abs/2606.28720" target="_blank" rel="noopener noreferrer">CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance</a></h3><p class="authors"><strong>Bohan Ren</strong>, Dianyi Yang, Shiyang Liu, Yu Gao, Jiadong Tang, Zhilin Lai, Yi Yang*, Mengyin Fu</p><details class="abstract"><summary>Read abstract <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#chevron-down"></use></svg></summary><p>CubifyGS is an object-centric mapping framework for lifelong scene maintenance in dynamic environments with frequent rigid object rearrangement. Instead of relying on slow primitive-level re-optimization that often leaves persistent ghosting artifacts, it updates 3D Gaussian assets through spatio-temporal dynamics perception, global asset retrieval, rigid transformation, and explicit pruning. An event-triggered adaptive optimization strategy then refines only the affected regions, improving both artifact suppression and long-term maintenance efficiency on a newly constructed high-fidelity dynamic benchmark.</p></details></div><button class="work-image" data-image="images/cubifygs.png" data-image-title="CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance" aria-label="Enlarge image: CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance"><img src="images/cubifygs.png" alt="CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance" loading="lazy" width="900" height="506"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg></span></button><div class="post-actions"><a class="text-action" href="https://arxiv.org/abs/2606.28720" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#file-text"></use></svg>Paper</a><button class="text-action" data-citation="@inproceedings{ren2026cubifygs,
+  title={{CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance}},
+  author={Ren, Bohan and Yang, Dianyi and Liu, Shiyang and Gao, Yu and Tang, Jiadong and Lai, Zhilin and Yang, Yi and Fu, Mengyin},
+  booktitle={2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year={2026},
+  note={Accepted},
+  url={https://arxiv.org/abs/2606.28720}
+}"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#copy"></use></svg>Cite</button><button class="icon-button save-button" data-save="cubifygs" aria-label="Save CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg></button><button class="icon-button" data-share="cubifygs" aria-label="Share CubifyGS: Object-Centric 3D Gaussian Splatting for Lifelong Dynamic Scene Maintenance"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#share-3"></use></svg></button></div></article><article class="work-card surface" id="tgac-2025" data-kind="project" data-work="tgac-2025">
+<div class="post-byline"><img class="mini-avatar" src="images/avatar-profile.png" alt="" width="36" height="36"><div><strong>Bohan Ren</strong><span>January 2026 · Project</span></div></div>
+<div class="work-copy"><span class="tag green">Tencent Games Algorithm Competition 2025</span><h3><a class="" href="https://tgac.tencent.com/" target="_blank" rel="noopener noreferrer">3D Video Motion Capture</a></h3><p class="work-description">Recovering human motion from video, at the intersection of 3D vision, pose estimation, and motion reconstruction.</p><p class="award"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#sparkles"></use></svg>7th place · 3D Video MoCap track · RMB 6,000 prize</p></div><button class="work-image" data-image="images/tgac_2025.png" data-image-title="3D Video Motion Capture" aria-label="Enlarge image: 3D Video Motion Capture"><img src="images/tgac_2025.png" alt="3D Video Motion Capture" loading="lazy" width="900" height="506"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg></span></button><div class="post-actions"><a class="text-action" href="https://tgac.tencent.com/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg>Project page</a><button class="icon-button save-button" data-save="tgac-2025" aria-label="Save 3D Video Motion Capture" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg></button><button class="icon-button" data-share="tgac-2025" aria-label="Share 3D Video Motion Capture"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#share-3"></use></svg></button></div></article></section><section class="year-group"><h2 class="year-heading"><span>2025</span><span class="year-line"></span></h2><article class="work-card surface" id="opengs-fusion" data-kind="paper" data-work="opengs-fusion">
+<div class="post-byline"><img class="mini-avatar" src="images/avatar-profile.png" alt="" width="36" height="36"><div><strong>Bohan Ren</strong><span>IROS 2025 · Publication</span></div></div>
+<div class="work-copy"><span class="tag blue">IROS 2025</span><h3><a class="" href="https://young-bit.github.io/opengs-fusion.github.io/" target="_blank" rel="noopener noreferrer">OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding</a></h3><p class="authors">Dianyi Yang, Xihan Wang, Yu Gao, Shiyang Liu, <strong>Bohan Ren</strong>, Yufeng Yue, Yi Yang*</p><details class="abstract"><summary>Read abstract <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#chevron-down"></use></svg></summary><p>OpenGS-Fusion is an open-vocabulary dense mapping framework that couples 3D Gaussian Splatting with a TSDF representation for on-the-fly, lossless semantic fusion. It further introduces MLLM-Assisted Adaptive Thresholding to refine 3D object segmentation under open-ended language queries, substantially improving object-level understanding and delivering stronger scene reconstruction and language-guided interaction performance than prior methods.</p></details></div><button class="work-image" data-image="images/opengsfusion.png" data-image-title="OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding" aria-label="Enlarge image: OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding"><img src="images/opengsfusion.png" alt="OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding" loading="lazy" width="900" height="506"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg></span></button><div class="post-actions"><a class="text-action" href="https://young-bit.github.io/opengs-fusion.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#file-text"></use></svg>Project page</a><button class="text-action" data-citation="@inproceedings{yang2025opengsfusion,
+  title={{OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding}},
+  author={Yang, Dianyi and Wang, Xihan and Gao, Yu and Liu, Shiyang and Ren, Bohan and Yue, Yufeng and Yang, Yi},
+  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={21135--21142},
+  year={2025},
+  publisher={IEEE},
+  doi={10.1109/IROS60139.2025.11247378}
+}"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#copy"></use></svg>Cite</button><button class="icon-button save-button" data-save="opengs-fusion" aria-label="Save OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg></button><button class="icon-button" data-share="opengs-fusion" aria-label="Share OpenGS-Fusion: Open-Vocabulary Dense Mapping with Hybrid 3D Gaussian Splatting for Refined Object-Level Understanding"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#share-3"></use></svg></button></div></article><article class="work-card surface" id="gaussian-registration" data-kind="paper" data-work="gaussian-registration">
+<div class="post-byline"><img class="mini-avatar" src="images/avatar-profile.png" alt="" width="36" height="36"><div><strong>Bohan Ren</strong><span>IROS 2025 · Publication</span></div></div>
+<div class="work-copy"><span class="tag blue">IROS 2025</span><h3><a class="" href="https://arxiv.org/abs/2507.20480" target="_blank" rel="noopener noreferrer">Automated 3D-GS Registration and Fusion Via Skeleton Alignment and Gaussian-Adaptive Features</a></h3><p class="authors">Shiyang Liu, Dianyi Yang, Yu Gao, <strong>Bohan Ren</strong>, Yi Yang*, Mengyin Fu</p><details class="abstract"><summary>Read abstract <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#chevron-down"></use></svg></summary><p>This work presents an automated framework for 3D Gaussian Splatting sub-map registration and fusion without manual reference-map selection. By combining cross-scene geometric skeleton extraction with ellipsoid-aware convolution and a multi-factor Gaussian fusion strategy, it improves both alignment accuracy and post-fusion rendering quality, delivering more reliable 3D scene representation for robotic perception and autonomous navigation.</p></details></div><button class="work-image" data-image="images/automated_3dgs_reg.png" data-image-title="Automated 3D-GS Registration and Fusion Via Skeleton Alignment and Gaussian-Adaptive Features" aria-label="Enlarge image: Automated 3D-GS Registration and Fusion Via Skeleton Alignment and Gaussian-Adaptive Features"><img src="images/automated_3dgs_reg.png" alt="Automated 3D-GS Registration and Fusion Via Skeleton Alignment and Gaussian-Adaptive Features" loading="lazy" width="900" height="506"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg></span></button><div class="post-actions"><a class="text-action" href="https://arxiv.org/abs/2507.20480" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#file-text"></use></svg>Paper</a><button class="text-action" data-citation="@inproceedings{liu2025automated,
+  title={{Automated 3D-GS Registration and Fusion via Skeleton Alignment and Gaussian-Adaptive Features}},
+  author={Liu, Shiyang and Yang, Dianyi and Gao, Yu and Ren, Bohan and Yang, Yi and Fu, Mengyin},
+  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={8158--8165},
+  year={2025},
+  publisher={IEEE},
+  doi={10.1109/IROS60139.2025.11247359}
+}"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#copy"></use></svg>Cite</button><button class="icon-button save-button" data-save="gaussian-registration" aria-label="Save Automated 3D-GS Registration and Fusion Via Skeleton Alignment and Gaussian-Adaptive Features" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg></button><button class="icon-button" data-share="gaussian-registration" aria-label="Share Automated 3D-GS Registration and Fusion Via Skeleton Alignment and Gaussian-Adaptive Features"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#share-3"></use></svg></button></div></article><article class="work-card surface" id="roadsidesplat" data-kind="paper" data-work="roadsidesplat">
+<div class="post-byline"><img class="mini-avatar" src="images/avatar-profile.png" alt="" width="36" height="36"><div><strong>Bohan Ren</strong><span>IROS 2025 · Publication</span></div></div>
+<div class="work-copy"><span class="tag blue">IROS 2025</span><h3>RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance</h3><p class="authors">Zhaoxiang Liang, Wenjun Guo, <strong>Bohan Ren</strong>, Yi Yang*</p></div><button class="work-image" data-image="images/RoadsideSplat.jpg" data-image-title="RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance" aria-label="Enlarge image: RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance"><img src="images/RoadsideSplat.jpg" alt="RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance" loading="lazy" width="900" height="506"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg></span></button><div class="post-actions"><button class="text-action" data-citation="@inproceedings{liang2025roadsidesplat,
+  title={{RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance}},
+  author={Liang, Zhaoxiang and Guo, Wenjun and Ren, Bohan and Yang, Yi},
+  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={14210--14217},
+  year={2025},
+  publisher={IEEE},
+  doi={10.1109/IROS60139.2025.11246928}
+}"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#copy"></use></svg>Cite</button><button class="icon-button save-button" data-save="roadsidesplat" aria-label="Save RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg></button><button class="icon-button" data-share="roadsidesplat" aria-label="Share RoadsideSplat: Robust 3D Gaussian Reconstruction from Monocular Roadside Surveillance"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#share-3"></use></svg></button></div></article><article class="work-card surface" id="thermal-knowledge" data-kind="paper" data-work="thermal-knowledge">
+<div class="post-byline"><img class="mini-avatar" src="images/avatar-profile.png" alt="" width="36" height="36"><div><strong>Bohan Ren</strong><span>IEEE TITS · 2025 · Publication</span></div></div>
+<div class="work-copy"><span class="tag blue">IEEE TITS · 2025</span><h3><a class="" href="https://pure.bit.edu.cn/en/publications/transferring-prior-thermal-knowledge-for-snowy-urban-scene-semant" target="_blank" rel="noopener noreferrer">Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation</a></h3><p class="authors">Xiaodong Guo, Tong Liu, Yefeng Mou, Siyuan Chai, <strong>Bohan Ren</strong>, Yijin Wang, Wei Shi, Siyuan Liu, Wujie Zhou</p><details class="abstract"><summary>Read abstract <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#chevron-down"></use></svg></summary><p>This work targets RGB-thermal semantic segmentation in snowy urban scenes by addressing both the lack of training data and practical deployment constraints. It introduces the SUS dataset and a knowledge-distillation framework built around MCNet, where prior thermal knowledge from an RGB-T teacher is transferred to an efficient RGB student, leading to stronger segmentation performance than existing methods on both SUS and MFNet.</p></details></div><button class="work-image" data-image="images/transferring_prior.png" data-image-title="Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation" aria-label="Enlarge image: Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation"><img src="images/transferring_prior.png" alt="Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation" loading="lazy" width="900" height="506"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg></span></button><div class="post-actions"><a class="text-action" href="https://pure.bit.edu.cn/en/publications/transferring-prior-thermal-knowledge-for-snowy-urban-scene-semant" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#file-text"></use></svg>Publication</a><button class="text-action" data-citation="@article{guo2025transferring,
+  title={{Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation}},
+  author={Guo, Xiaodong and Liu, Tong and Mou, Yefeng and Chai, Siyuan and Ren, Bohan and Wang, Yijin and Shi, Wei and Liu, Siyuan and Zhou, Wujie},
+  journal={IEEE Transactions on Intelligent Transportation Systems},
+  volume={26},
+  number={8},
+  pages={12474--12487},
+  year={2025},
+  publisher={IEEE},
+  doi={10.1109/TITS.2025.3555617}
+}"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#copy"></use></svg>Cite</button><button class="icon-button save-button" data-save="thermal-knowledge" aria-label="Save Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg></button><button class="icon-button" data-share="thermal-knowledge" aria-label="Share Transferring Prior Thermal Knowledge for Snowy Urban Scene Semantic Segmentation"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#share-3"></use></svg></button></div></article><article class="work-card surface" id="3dgs-slam-thesis" data-kind="paper" data-work="3dgs-slam-thesis">
+<div class="post-byline"><img class="mini-avatar" src="images/avatar-profile.png" alt="" width="36" height="36"><div><strong>Bohan Ren</strong><span>Undergraduate Thesis · 2025 · Publication</span></div></div>
+<div class="work-copy"><span class="tag blue">Undergraduate Thesis · 2025</span><h3>Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera</h3><p class="authors"><strong>Bohan Ren</strong></p></div><button class="work-image" data-image="images/research_on_3dgs_slam.png" data-image-title="Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera" aria-label="Enlarge image: Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera"><img src="images/research_on_3dgs_slam.png" alt="Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera" loading="lazy" width="900" height="506"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg></span></button><div class="post-actions"><button class="text-action" data-citation="@mastersthesis{ren2025depthslam,
+  title={{Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera}},
+  author={Ren, Bohan},
+  school={Beijing Institute of Technology},
+  type={Undergraduate thesis},
+  year={2025}
+}"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#copy"></use></svg>Cite</button><button class="icon-button save-button" data-save="3dgs-slam-thesis" aria-label="Save Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg></button><button class="icon-button" data-share="3dgs-slam-thesis" aria-label="Share Research on the Implementation of a 3D-GS-Based Depth Visual SLAM Method Using RGB-D Camera"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#share-3"></use></svg></button></div></article><article class="work-card surface" id="a2rl" data-kind="project" data-work="a2rl">
+<div class="post-byline"><img class="mini-avatar" src="images/avatar-profile.png" alt="" width="36" height="36"><div><strong>Bohan Ren</strong><span>November 2025 · Project</span></div></div>
+<div class="work-copy"><span class="tag green">Autonomous Racing League</span><h3><a class="" href="https://a2rl.io/" target="_blank" rel="noopener noreferrer">A2RL: Autonomous Racing</a></h3><p class="work-description">One of the main software engineers working on factor-graph track mapping, globally optimal trajectory design and optimization, and sensor calibration.</p><p class="award"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#sparkles"></use></svg>Silver Group runner-up · Grand Prix · November 15, 2025</p></div><button class="work-image" data-image="images/a2rl.png" data-image-title="A2RL: Autonomous Racing" aria-label="Enlarge image: A2RL: Autonomous Racing"><img src="images/a2rl.png" alt="A2RL: Autonomous Racing" loading="lazy" width="900" height="506"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg></span></button><div class="post-actions"><a class="text-action" href="https://a2rl.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg>Project page</a><a class="text-action" href="https://www.bilibili.com/video/BV1v1zrB3EXE/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#player-play"></use></svg>Video</a><button class="icon-button save-button" data-save="a2rl" aria-label="Save A2RL: Autonomous Racing" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg></button><button class="icon-button" data-share="a2rl" aria-label="Share A2RL: Autonomous Racing"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#share-3"></use></svg></button></div></article></section><section class="year-group"><h2 class="year-heading"><span>2024</span><span class="year-line"></span></h2><article class="work-card surface" id="idepthmidi" data-kind="project" data-work="idepthmidi">
+<div class="post-byline"><img class="mini-avatar" src="images/avatar-profile.png" alt="" width="36" height="36"><div><strong>Bohan Ren</strong><span>February 2024 · Project</span></div></div>
+<div class="work-copy"><span class="tag green">iPhone TrueDepth · Gesture interaction</span><h3>iDepthMIDI: A Depth-Sensing Gesture Interface</h3><p class="work-description">A contactless gesture interface using the iPhone TrueDepth camera. My work covers depth-sensing interaction design, the gesture-control pipeline, and software development.</p></div><button class="work-image" data-image="images/idepth.png" data-image-title="iDepthMIDI: A Depth-Sensing Gesture Interface" aria-label="Enlarge image: iDepthMIDI: A Depth-Sensing Gesture Interface"><img src="images/idepth.png" alt="iDepthMIDI: A Depth-Sensing Gesture Interface" loading="lazy" width="900" height="506"><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#external-link"></use></svg></span></button><div class="post-actions"><a class="text-action" href="https://www.youtube.com/watch?v=XPWwDijG5D8" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#player-play"></use></svg>Video</a><button class="icon-button save-button" data-save="idepthmidi" aria-label="Save iDepthMIDI: A Depth-Sensing Gesture Interface" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#bookmark"></use></svg></button><button class="icon-button" data-share="idepthmidi" aria-label="Share iDepthMIDI: A Depth-Sensing Gesture Interface"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#share-3"></use></svg></button></div></article></section></div><div class="empty-results surface" hidden><span class="empty-icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#search"></use></svg></span><h3>No matching work</h3><p>Try another search or filter.</p><button class="button secondary" id="reset-filters">Show all work <svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#arrow-right"></use></svg></button></div></main><aside class="notes-sidebar" aria-label="Research interests"><section class="learning-card"><div class="card-heading"><h2>On my mind</h2><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#book-2"></use></svg></div><span class="learning-label">Currently learning</span><a class="learning-topic" href="about.html#research"><span class="topic-number">01</span><div><h3>VLA</h3><p>Vision · Language · Action</p></div><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#arrow-up-right"></use></svg></a><a class="learning-topic" href="about.html#research"><span class="topic-number">02</span><div><h3>Flow Matching</h3><p>Generative models</p></div><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#arrow-up-right"></use></svg></a></section><footer class="site-footer">© 2026 Bohan Ren</footer></aside></div></div>
+<dialog id="content-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><h2 id="dialog-title"></h2><button class="icon-button" id="close-dialog" aria-label="Close dialog"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg?v=2d95bdda06#x"></use></svg></button></div><div id="dialog-content"></div></dialog><div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>
