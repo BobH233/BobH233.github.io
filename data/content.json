@@ -416,6 +416,14 @@
       "affiliation": "Changsha University of Science and Technology",
       "url": "https://github.com/zHElEARN",
       "image": "images/friends/zhelearn.jpg"
+    },
+    {
+      "id": "flycatfeimao",
+      "name": "FlycatFeimao",
+      "handle": "@FlycatFeimao",
+      "affiliation": "",
+      "url": "https://github.com/FlycatFeimao",
+      "image": "images/friends/flycatfeimao.jpg"
     }
   ]
 }
